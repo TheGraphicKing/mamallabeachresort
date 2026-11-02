@@ -54,8 +54,8 @@ export default function DiningPage() {
 
       <Reveal variant="mask" className="container-site">
         <div className="grid gap-4 md:grid-cols-3">
-          <Media media={media.dining} className="aspect-[4/5] md:col-span-2 md:aspect-[16/10]" sizes="(min-width: 768px) 66vw, 100vw" />
-          <Media media={media.dusk} className="aspect-[4/5]" sizes="(min-width: 768px) 33vw, 100vw" />
+          <Media media={media.diningIndian} className="aspect-[4/5] md:col-span-2 md:aspect-[16/10]" sizes="(min-width: 768px) 66vw, 100vw" />
+          <Media media={media.diningPlate} className="aspect-[4/5]" sizes="(min-width: 768px) 33vw, 100vw" />
         </div>
       </Reveal>
 

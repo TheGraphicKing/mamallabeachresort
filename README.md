@@ -5,7 +5,7 @@ Built with Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4 and Fra
 
 > **Before launch, read [`docs/CONTENT-VERIFICATION.md`](docs/CONTENT-VERIFICATION.md),
 > [`docs/INTEGRATIONS.md`](docs/INTEGRATIONS.md) and [`docs/ASSETS.md`](docs/ASSETS.md).**
-> All imagery is currently original illustration (no resort photographs were available), and the
+> All photography is currently remote **sample imagery** (Unsplash / Wikimedia Commons) that does not depict the resort, and the
 > booking engine, enquiry delivery and 360° tour need the resort's credentials/URLs.
 
 ## Pages
@@ -15,6 +15,7 @@ Built with Next.js 15 (App Router), React 19, TypeScript, Tailwind CSS 4 and Fra
 | `/` | Home — cinematic hero, booking bar, intro, rooms, experiences, dining, interactive map, events, FAQs, CTA |
 | `/about` | About the resort and Mahabalipuram |
 | `/rooms` · `/rooms/[slug]` | Rooms & accommodation; Deluxe Room and Standard Room detail pages |
+| `/mahabalipuram` | Discover Mahabalipuram — monuments, also-nearby, location |
 | `/experiences` | Beach, pool, dining, family, romance, weddings, corporate, nearby monuments |
 | `/dining` | The Seagull restaurant + dining enquiry |
 | `/weddings` · `/meetings` | Event landing pages with venues and event enquiry form |
@@ -68,7 +69,7 @@ Content is separated from presentation:
 - `src/content/resort.ts` — contact details, facilities, dining, event spaces, attractions, navigation
 - `src/content/rooms.ts` — room categories
 - `src/content/experiences.ts` — experiences, map zones, FAQs
-- `src/content/media.ts` — every image slot (add `src` to swap an illustration for a photo)
+- `src/content/media.ts` — every image slot: approved `src`, sample `photos`, fallback illustration
 
 Facts carry a verification status (`confirmed` / `listed` / `unknown`); unknown values render as
 "Confirmed on enquiry" instead of being guessed.

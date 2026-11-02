@@ -42,8 +42,8 @@ export function Intro() {
               <Media media={media.introPalms} sizes="(min-width: 1024px) 55vw, 100vw" className="h-full w-full" />
             </Parallax>
           </Reveal>
-          <Reveal variant="mask" delay={0.2} className="absolute -bottom-12 -left-4 w-[46%] shadow-[0_40px_80px_-40px_rgba(18,35,47,0.6)] md:-left-16 lg:-left-24">
-            <Media media={media.introStone} sizes="25vw" className="aspect-square w-full border-8 border-ivory" labelPosition="bottom-right" />
+          <Reveal variant="mask" delay={0.2} className="absolute -bottom-12 left-0 w-[46%] shadow-[0_40px_80px_-40px_rgba(18,35,47,0.6)] md:-left-16 lg:-left-24">
+            <Media media={media.poolLoungers} sizes="25vw" className="aspect-square w-full border-8 border-ivory" labelPosition="bottom-right" />
           </Reveal>
         </div>
       </div>

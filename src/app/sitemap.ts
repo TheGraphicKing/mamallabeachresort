@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ["/weddings", 0.8],
     ["/meetings", 0.8],
     ["/experiences", 0.7],
+    ["/mahabalipuram", 0.7],
     ["/dining", 0.7],
     ["/explore", 0.7],
     ["/about", 0.6],

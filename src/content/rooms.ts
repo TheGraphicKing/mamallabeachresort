@@ -31,7 +31,7 @@ export const rooms: RoomCategory[] = [
     ],
     pending: ["Maximum occupancy", "Extra bed policy", "In-room amenities list", "Bathroom details", "Room photography"],
     hero: media.roomDeluxe,
-    gallery: [media.roomDeluxe, media.pool, media.introPalms],
+    gallery: [media.roomDeluxe, media.roomDeluxe2, media.roomDeluxe3, media.poolLoungers],
   },
   {
     slug: "standard-room",
@@ -53,7 +53,7 @@ export const rooms: RoomCategory[] = [
     ],
     pending: ["Room size", "Bed configuration", "Maximum occupancy", "In-room amenities list", "Room photography"],
     hero: media.roomStandard,
-    gallery: [media.roomStandard, media.gardens, media.beach],
+    gallery: [media.roomStandard, media.roomStandard2, media.gardens, media.pool],
   },
 ];
 

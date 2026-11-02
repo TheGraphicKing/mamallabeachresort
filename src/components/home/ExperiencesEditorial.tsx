@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { experiences } from "@/content/experiences";
-import { media } from "@/content/media";
 import { Media } from "../media/Media";
-import { Parallax } from "../motion/Parallax";
 import { Reveal } from "../motion/Reveal";
 import { ArrowLink } from "../ui/Button";
 import { Eyebrow } from "../ui/Typography";
@@ -11,11 +9,9 @@ import { Eyebrow } from "../ui/Typography";
  * Three distinct compositions rather than a card grid:
  * 1. Sticky editorial column + stacked shore/pool stories
  * 2. Family / romance diptych
- * 3. Full-bleed Mahabalipuram heritage band
  */
 export function ExperiencesEditorial() {
   const [beach, pool, , family, romance] = experiences;
-  const heritage = experiences.find((e) => e.slug === "mahabalipuram")!;
   return (
     <section aria-labelledby="exp-title" className="pt-24 md:pt-36">
       <div className="container-site grid gap-14 lg:grid-cols-12">
@@ -85,21 +81,6 @@ export function ExperiencesEditorial() {
         ))}
       </div>
 
-      {/* Heritage band */}
-      <div id="heritage" className="on-dark relative mt-28 overflow-hidden text-ivory md:mt-40">
-        <Parallax className="absolute inset-0" strength={10}>
-          <Media media={media.shoreTemple} sizes="100vw" className="h-full w-full" labelPosition="top-right" />
-        </Parallax>
-        <div aria-hidden className="absolute inset-0 bg-gradient-to-r from-ocean-deep/85 via-ocean-deep/45 to-transparent" />
-        <div className="container-site relative py-32 md:py-48">
-          <Reveal className="max-w-xl">
-            <p className="eyebrow text-sand">{heritage.eyebrow}</p>
-            <h3 className="mt-5 text-display-md">{heritage.title}</h3>
-            <p className="mt-6 text-lead text-ivory/85">{heritage.body}</p>
-            <ArrowLink href={heritage.cta.href} light className="mt-10">{heritage.cta.label}</ArrowLink>
-          </Reveal>
-        </div>
-      </div>
     </section>
   );
 }

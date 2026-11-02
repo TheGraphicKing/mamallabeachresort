@@ -86,8 +86,7 @@ export default function TermsPage() {
           title: "Imagery",
           body: (
             <p>
-              Illustrations on this website are artwork and are not photographs of the property. Photographs, where shown, are
-              representative of the resort.
+              Photographs on this website are representative sample imagery and do not depict the property, its rooms, food or venues unless stated. Ask us for current photographs of the resort.
             </p>
           ),
         },

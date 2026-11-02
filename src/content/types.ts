@@ -24,14 +24,28 @@ export type ArtworkScene =
   | "stone"
   | "dusk";
 
+/**
+ * A remote sample photograph (prototype imagery, NOT the resort).
+ * `unsplash` takes the long photo id ("1507525428034-b723cf961d3e");
+ * `url` takes any image URL that accepts a `width` query parameter (e.g. Wikimedia Special:FilePath).
+ */
+export type PhotoSource = { unsplash: string } | { url: string };
+
 export interface MediaAsset {
   id: string;
-  /** Path under /public (e.g. "/images/rooms/deluxe-01.avif") or an allowed remote URL. */
+  /** Authentic, approved photo: path under /public (e.g. "/images/rooms/deluxe-01.jpg"). Takes priority. */
   src?: string;
   width?: number;
   height?: number;
+  /**
+   * Sample photography used for the prototype, tried in order. If every source fails to load,
+   * the illustration for `scene` is shown instead, so a broken URL never breaks the layout.
+   */
+  photos?: PhotoSource[];
+  /** Where the sample photos come from, for the asset manifest (docs/ASSETS.md). */
+  credit?: string;
   alt: string;
-  /** Rendered when `src` is not yet supplied. Always labelled as an illustration. */
+  /** Final fallback artwork, labelled "Illustration". */
   scene: ArtworkScene;
   /** Short caption shown in galleries. */
   caption?: string;
@@ -90,4 +104,5 @@ export interface FaqItem {
 export interface Attraction {
   name: string;
   description: string;
+  media?: MediaAsset;
 }

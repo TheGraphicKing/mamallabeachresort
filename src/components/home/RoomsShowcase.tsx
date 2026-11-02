@@ -19,7 +19,7 @@ export function RoomsShowcase() {
             />
           </Reveal>
           <Reveal delay={0.1}>
-            <ArrowLink href="/rooms">All rooms</ArrowLink>
+            <ArrowLink href="/rooms" className="whitespace-nowrap">All rooms</ArrowLink>
           </Reveal>
         </div>
 

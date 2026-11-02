@@ -10,7 +10,7 @@ export function FinalCta({ title = "The coast is calling.", lead = "Choose your 
   return (
     <section aria-labelledby="final-cta-title" className="on-dark relative isolate overflow-hidden text-ivory">
       <Parallax className="absolute inset-0 -z-10" strength={10}>
-        <Media media={media.dusk} sizes="100vw" className="h-full w-full" labelPosition="top-right" />
+        <Media media={media.coastSunset} sizes="100vw" className="h-full w-full" labelPosition="top-right" />
       </Parallax>
       <div aria-hidden className="absolute inset-0 -z-10 bg-ocean-deep/60" />
       <div className="container-site flex min-h-[80svh] flex-col items-center justify-center py-32 text-center">

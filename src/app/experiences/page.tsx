@@ -27,7 +27,7 @@ export default function ExperiencesPage() {
         eyebrow="Experiences"
         title={<>Sea, sand <em className="italic text-sand">and stone</em></>}
         lead="Unhurried days at the resort, and a thirteen-century-old town on the doorstep."
-        media={media.beach}
+        media={media.coastSunset}
         breadcrumbs={[{ label: "Experiences", href: "/experiences" }]}
       />
 
@@ -110,7 +110,7 @@ export default function ExperiencesPage() {
             current timings before you go — our front desk can help.
           </Notice>
           <p className="mt-10">
-            <Link href="/contact" className="eyebrow link-underline text-sand">Getting here →</Link>
+            <Link href="/mahabalipuram" className="eyebrow link-underline text-sand">Discover Mahabalipuram →</Link>
           </p>
         </div>
       </section>

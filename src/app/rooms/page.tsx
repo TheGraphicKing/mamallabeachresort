@@ -26,7 +26,7 @@ export default function RoomsPage() {
         eyebrow="Rooms & accommodation"
         title={<>Rest easy, <em className="italic text-sand">close to the shore</em></>}
         lead="Two categories of room, with air-conditioned and non-AC options — a calm base for pool days, beach walks and evenings in Mahabalipuram."
-        media={media.roomDeluxe}
+        media={media.roomDeluxe2}
         breadcrumbs={[{ label: "Rooms", href: "/rooms" }]}
       />
 

@@ -81,7 +81,7 @@ export const events = {
       name: "Banquet Hall",
       kind: "Indoor",
       body: "An indoor hall for ceremonies, receptions and family functions — and a sheltered alternative when the weather turns.",
-      media: media.hall,
+      media: media.reception,
     },
     {
       name: "Conference Hall",
@@ -97,21 +97,25 @@ export const events = {
 export const attractions: Attraction[] = [
   {
     name: "Shore Temple",
+    media: media.shoreTemple,
     description:
       "The 8th-century granite temple on the seashore, part of the Group of Monuments at Mahabalipuram — a UNESCO World Heritage Site.",
   },
   {
     name: "Pancha Rathas",
+    media: media.panchaRathas,
     description:
       "Five monolithic shrines, each carved from a single outcrop of rock, also within the UNESCO-listed group.",
   },
   {
     name: "Arjuna's Penance",
+    media: media.arjunasPenance,
     description:
       "One of the largest open-air rock reliefs in the world, carved across two great boulders in the town centre.",
   },
   {
     name: "Krishna's Butter Ball",
+    media: media.butterBall,
     description: "A giant granite boulder balanced on a gentle slope — a favourite with families and photographers.",
   },
   {
@@ -126,12 +130,16 @@ export const attractions: Attraction[] = [
 ];
 
 export const nav = {
+  /** Split around the centred wordmark on large screens. */
   primary: [
     { label: "Stay", href: "/rooms" },
-    { label: "Explore", href: "/explore" },
+    { label: "Experiences", href: "/experiences" },
     { label: "Dining", href: "/dining" },
-    { label: "Weddings", href: "/weddings" },
-    { label: "Meetings", href: "/meetings" },
+  ],
+  secondary: [
+    { label: "Celebrations", href: "/weddings" },
+    { label: "Mahabalipuram", href: "/mahabalipuram" },
+    { label: "Contact", href: "/contact" },
   ],
   menu: [
     {
@@ -148,6 +156,7 @@ export const nav = {
         { label: "About the Resort", href: "/about" },
         { label: "Experiences", href: "/experiences" },
         { label: "Dining", href: "/dining" },
+        { label: "Discover Mahabalipuram", href: "/mahabalipuram" },
         { label: "Virtual Tour & Map", href: "/explore" },
         { label: "Gallery", href: "/gallery" },
       ],

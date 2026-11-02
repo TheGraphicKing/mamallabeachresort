@@ -14,6 +14,38 @@ function isActive(pathname: string, href: string) {
   return href === "/" ? pathname === "/" : pathname === href || pathname.startsWith(href + "/");
 }
 
+function NavLinks({ items, pathname }: { items: { label: string; href: string }[]; pathname: string }) {
+  return (
+    <ul className="flex items-center gap-6 2xl:gap-8">
+      {items.map((item) => {
+        const active = isActive(pathname, item.href);
+        return (
+          <li key={item.href}>
+            <Link
+              href={item.href}
+              aria-current={active ? "page" : undefined}
+              className={cn(
+                "group/nav relative block py-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] transition-opacity duration-300",
+                active ? "opacity-100" : "opacity-75 hover:opacity-100",
+              )}
+            >
+              {item.label}
+              <span
+                aria-hidden
+                className={cn(
+                  "absolute -bottom-0.5 left-0 h-px origin-left bg-current transition-transform duration-500 ease-[var(--ease-tide)]",
+                  "w-full",
+                  active ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100",
+                )}
+              />
+            </Link>
+          </li>
+        );
+      })}
+    </ul>
+  );
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
@@ -119,29 +151,7 @@ export function SiteHeader() {
               <span aria-hidden className="eyebrow hidden sm:inline">{menuOpen ? "Close" : "Menu"}</span>
             </button>
             <nav aria-label="Primary" className="hidden xl:block">
-              <ul className="flex items-center gap-7">
-                {nav.primary.map((item) => {
-                  const active = isActive(pathname, item.href);
-                  return (
-                    <li key={item.href}>
-                      <Link
-                        href={item.href}
-                        aria-current={active ? "page" : undefined}
-                        className={cn("eyebrow relative py-2 transition-opacity hover:opacity-100", active ? "opacity-100" : "opacity-80")}
-                      >
-                        {item.label}
-                        <span
-                          aria-hidden
-                          className={cn(
-                            "absolute -bottom-0.5 left-0 h-px bg-current transition-all duration-500",
-                            active ? "w-full" : "w-0",
-                          )}
-                        />
-                      </Link>
-                    </li>
-                  );
-                })}
-              </ul>
+              <NavLinks items={nav.primary} pathname={pathname} />
             </nav>
           </div>
 
@@ -150,9 +160,12 @@ export function SiteHeader() {
           </Link>
 
           <div className="flex items-center justify-end gap-2 md:gap-5">
+            <nav aria-label="Secondary" className="hidden xl:block">
+              <NavLinks items={nav.secondary} pathname={pathname} />
+            </nav>
             <a
               href={resort.phone.href}
-              className="hidden h-11 items-center gap-2 px-2 text-sm lg:flex"
+              className="hidden h-11 items-center gap-2 px-2 text-sm 2xl:flex"
               aria-label={`Call the resort on ${resort.phone.display}`}
             >
               <Phone aria-hidden className="h-4 w-4" strokeWidth={1.5} />
@@ -164,7 +177,7 @@ export function SiteHeader() {
                 solid ? "bg-ocean text-ivory hover:bg-ocean-deep" : "border border-ivory/60 hover:bg-ivory hover:text-ocean-deep",
               )}
             >
-              Book<span className="hidden sm:inline">&nbsp;your stay</span>
+              Book<span className="hidden sm:inline xl:hidden 2xl:inline">&nbsp;your stay</span>
             </BookButton>
           </div>
         </div>

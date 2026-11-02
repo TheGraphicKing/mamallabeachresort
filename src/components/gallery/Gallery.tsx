@@ -175,7 +175,7 @@ export function Gallery({ items, filterable = true }: { items: MediaAsset[]; fil
             </div>
             <p className="px-6 pt-4 pb-8 text-center text-sm text-ivory/75 pb-safe">
               {current.caption}
-              {!current.src && <span className="ml-2 text-ivory/50">· Illustration</span>}
+              {!current.src && <span className="ml-2 text-ivory/50">· Sample image</span>}
             </p>
           </motion.div>
         )}

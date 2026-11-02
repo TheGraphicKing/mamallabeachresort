@@ -4,6 +4,7 @@ import { fullAddress, resort } from "@/content/resort";
 import { Faq } from "../sections/Faq";
 import { Reveal } from "../motion/Reveal";
 import { ArrowLink } from "../ui/Button";
+import { CopyButton } from "../ui/CopyButton";
 import { SectionHeading } from "../ui/Typography";
 
 export function TrustSection() {
@@ -13,17 +14,18 @@ export function TrustSection() {
       <div className="container-site grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <Reveal>
-            <SectionHeading eyebrow="Before you travel" title={<span id="plan-title">Good to know</span>} />
+            <SectionHeading eyebrow="Plan your visit" title={<span id="plan-title">Finding us, and good to know</span>} />
           </Reveal>
           <Reveal delay={0.1}>
             <dl className="mt-12 space-y-8">
               <div>
                 <dt className="eyebrow text-stone-deep">Where</dt>
                 <dd className="mt-2 text-lg leading-relaxed">{fullAddress}</dd>
-                <dd className="mt-3">
-                  <a href={resort.maps.href} target="_blank" rel="noopener noreferrer" className="eyebrow inline-flex items-center gap-2 text-ocean link-underline pb-1">
-                    Open in Google Maps <ArrowUpRight aria-hidden className="h-3.5 w-3.5" />
+                <dd className="mt-2 flex flex-wrap items-center gap-x-6">
+                  <a href={resort.maps.href} target="_blank" rel="noopener noreferrer" className="eyebrow inline-flex min-h-11 items-center gap-2 text-ocean">
+                    <span className="link-underline pb-1">Get directions</span> <ArrowUpRight aria-hidden className="h-3.5 w-3.5" />
                   </a>
+                  <CopyButton text={fullAddress} />
                 </dd>
               </div>
               <div>

@@ -217,3 +217,8 @@ details[open] > .details-body {
     scroll-behavior: auto !important;
   }
 }
+
+/* "Illustration" label only when a slot is actually showing fallback artwork */
+.media-slot:not(:has(img[src^="/art/"])) > .media-fallback-label {
+  display: none;
+}

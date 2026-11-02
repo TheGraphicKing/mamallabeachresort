@@ -26,9 +26,9 @@ export default function GalleryPage() {
       <section className="section-y">
         <div className="container-site">
           <Notice title="About our imagery" className="mb-14 max-w-3xl">
-            The images in this gallery are original illustrations, not photographs of the property. We&apos;re replacing
-            them with authentic resort photography. Until then, our team is happy to share recent photographs on request —
-            email <a href={resort.email.href} className="underline underline-offset-2">{resort.email.display}</a>.
+            The photographs here are representative sample images chosen to convey the mood of the coast — they are
+            not pictures of Mamalla Beach Resort. We&apos;re replacing them with the resort&apos;s own photography. For recent
+            photos of the rooms, pool or venues, email <a href={resort.email.href} className="underline underline-offset-2">{resort.email.display}</a>.
           </Notice>
           <Gallery items={galleryMedia} />
         </div>

@@ -18,7 +18,7 @@ export default function MeetingsPage() {
         eyebrow="Meetings & corporate"
         title={<>Meet where the <em className="italic text-sand">horizon is wide</em></>}
         lead="A conference hall, rooms and dining on one property — away from the city, a drive down the coast from Chennai."
-        media={media.hall}
+        media={media.introStone}
         breadcrumbs={[{ label: "Meetings", href: "/meetings" }]}
       >
         <a href="#enquire" className={buttonClass("light")}>Enquire for your team</a>
@@ -47,7 +47,7 @@ export default function MeetingsPage() {
           { title: "Group stays", body: "Accommodation for your delegates — ask about group requirements." },
         ]}
         spaceOrder={["Conference Hall", "Banquet Hall", "The Lawn"]}
-        feature={media.beach}
+        feature={media.poolLoungers}
         eventTypes={["Meeting / conference", "Corporate retreat / offsite", "Group stay", "Banquet", "Other"]}
         formTitle="Enquire for your team"
         formLead="Tell us your dates, group size and what you need. Our team will reply with options and a proposal."

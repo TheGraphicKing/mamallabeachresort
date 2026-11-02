@@ -172,14 +172,14 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
   return (
     <form ref={rootRef} onSubmit={submit} noValidate aria-label="Book your stay" className="relative">
       {layout === "bar" ? (
-        <div className={cn("grid bg-ivory text-ink shadow-[0_30px_80px_-40px_rgba(18,35,47,0.6)] md:grid-cols-[1fr_1fr_1.25fr_auto]")}>
-          <div className="border-b border-ink/10 md:border-r md:border-b-0">
+        <div className={cn("grid bg-ivory text-ink shadow-[0_30px_80px_-40px_rgba(18,35,47,0.6)] md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.25fr_auto]")}>
+          <div className="border-b border-ink/10 md:border-r lg:border-b-0">
             {fieldBtn("checkIn", "Arrival", fmt(q.checkIn), "Add date", CalendarDays)}
           </div>
-          <div className="border-b border-ink/10 md:border-r md:border-b-0">
+          <div className="border-b border-ink/10 lg:border-r lg:border-b-0">
             {fieldBtn("checkOut", "Departure", fmt(q.checkOut), "Add date", CalendarDays)}
           </div>
-          <div className="border-b border-ink/10 md:border-b-0">
+          <div className="border-b border-ink/10 md:border-r md:border-b-0 lg:border-r-0">
             {fieldBtn("guests", "Guests & rooms", guestSummary(q), "", Users)}
           </div>
           <button

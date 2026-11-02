@@ -73,7 +73,7 @@ export function SiteFooter() {
         <div className="flex flex-col gap-4 pt-8 text-xs text-ivory/55 md:flex-row md:items-center md:justify-between">
           <p>© {year} {resort.name}, Mahabalipuram. All rights reserved.</p>
           <p>
-            Illustrations on this site are artwork, not photographs of the property.{" "}
+            Photography on this site is representative sample imagery, not the resort itself.{" "}
             <Link href="/gallery" className="underline underline-offset-2 hover:text-ivory">About our imagery</Link>
           </p>
         </div>

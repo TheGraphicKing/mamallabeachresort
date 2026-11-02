@@ -47,7 +47,7 @@ export default function WeddingsPage() {
           { title: "Pre-wedding gatherings", body: "Relaxed get-togethers for families arriving for the celebrations." },
         ]}
         spaceOrder={["The Lawn", "Banquet Hall"]}
-        feature={media.dusk}
+        feature={media.celebrationTable}
         eventTypes={["Wedding", "Reception", "Engagement / family celebration", "Banquet", "Group stay", "Other"]}
         formTitle="Plan your celebration"
         formLead="Share a few details and our events team will be in touch to discuss dates, spaces and arrangements."

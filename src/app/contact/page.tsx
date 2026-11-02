@@ -22,7 +22,7 @@ export default function ContactPage() {
         eyebrow="Contact & location"
         title="We'd love to hear from you"
         lead="Questions about rooms, dining or an event? Get in touch and our team will reply."
-        media={media.shoreTemple}
+        media={media.coastSunset}
         breadcrumbs={[{ label: "Contact", href: "/contact" }]}
       />
       <section className="section-y">

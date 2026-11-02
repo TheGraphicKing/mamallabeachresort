@@ -10,10 +10,19 @@ export function DiningFeature() {
   return (
     <section aria-labelledby="dining-title" className="section-y">
       <div className="container-site grid items-center gap-12 lg:grid-cols-12">
-        <Reveal variant="mask" className="lg:col-span-6 lg:col-start-1">
-          <Media media={media.dining} sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[5/4] w-full" />
-        </Reveal>
-        <Reveal delay={0.1} className="lg:col-span-5 lg:col-start-8">
+        <div className="relative lg:col-span-6 lg:col-start-1">
+          <Reveal variant="mask">
+            <Media media={media.dining} sizes="(min-width: 1024px) 50vw, 100vw" className="aspect-[4/5] w-full sm:aspect-[5/4]" />
+          </Reveal>
+          <Reveal
+            variant="mask"
+            delay={0.2}
+            className="absolute -right-3 -bottom-10 w-[42%] border-[6px] border-ivory shadow-[0_30px_60px_-30px_rgba(18,35,47,0.5)] sm:-right-8 lg:-right-16"
+          >
+            <Media media={media.diningPlate} sizes="22vw" className="aspect-square w-full" labelPosition="bottom-right" />
+          </Reveal>
+        </div>
+        <Reveal delay={0.1} className="pt-10 lg:col-span-5 lg:col-start-8 lg:pt-0">
           <Eyebrow className="mb-8">Dining</Eyebrow>
           <h2 id="dining-title" className="text-display-md text-ocean-deep">
             {dining.name}
