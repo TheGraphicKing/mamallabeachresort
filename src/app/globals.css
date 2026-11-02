@@ -1,0 +1,219 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   Design system — "Granite & Tide"
+   Colour, type, spacing and motion tokens. See docs/DESIGN-SYSTEM.md.
+   ========================================================================== */
+
+@theme {
+  /* Colour */
+  --color-ivory: #f7f2e9;
+  --color-ivory-deep: #efe6d6;
+  --color-sand: #e5d7bf;
+  --color-sand-deep: #cdb894;
+  --color-stone: #8f8371;
+  --color-stone-deep: #5f564a;
+  --color-seaglass: #a7c1b5;
+  --color-seaglass-deep: #4f7468;
+  --color-ocean: #1f3a4b;
+  --color-ocean-deep: #12232f;
+  --color-charcoal: #1f2326;
+  --color-ink: #2b2925;
+  --color-terracotta: #a85a36;
+  --color-brass: #a88752;
+  --color-error: #9b2c22;
+  --color-success: #2f6a4f;
+
+  /* Type */
+  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --text-eyebrow: 0.72rem;
+  --text-eyebrow--letter-spacing: 0.24em;
+  --text-display-xl: clamp(3.1rem, 8.2vw, 8.5rem);
+  --text-display-xl--line-height: 0.95;
+  --text-display-lg: clamp(2.5rem, 5.6vw, 5.5rem);
+  --text-display-lg--line-height: 1;
+  --text-display-md: clamp(2rem, 3.8vw, 3.6rem);
+  --text-display-md--line-height: 1.06;
+  --text-display-sm: clamp(1.55rem, 2.4vw, 2.25rem);
+  --text-display-sm--line-height: 1.15;
+  --text-lead: clamp(1.08rem, 1.4vw, 1.3rem);
+  --text-lead--line-height: 1.65;
+
+  /* Layout */
+  --container-content: 82rem;
+  --container-prose: 40rem;
+  --breakpoint-xs: 26rem;
+  --breakpoint-3xl: 112rem;
+
+  /* Motion */
+  --ease-tide: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-swell: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-quick: 180ms;
+  --duration-base: 320ms;
+  --duration-slow: 700ms;
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: 6rem;
+  }
+  body {
+    background: var(--color-ivory);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+  ::selection {
+    background: var(--color-seaglass);
+    color: var(--color-ocean-deep);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-terracotta);
+    outline-offset: 3px;
+    border-radius: 1px;
+  }
+  .on-dark :focus-visible,
+  .on-dark:focus-visible {
+    outline-color: var(--color-sand);
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    letter-spacing: -0.012em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  input, select, textarea, button {
+    font: inherit;
+  }
+}
+
+/* ---------- Utilities ---------- */
+@utility container-site {
+  width: 100%;
+  max-width: var(--container-content);
+  margin-inline: auto;
+  padding-inline: max(1.25rem, env(safe-area-inset-left));
+  @variant md {
+    padding-inline: 2.5rem;
+  }
+  @variant xl {
+    padding-inline: 3.5rem;
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: var(--text-eyebrow);
+  letter-spacing: var(--text-eyebrow--letter-spacing);
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+@utility section-y {
+  padding-block: clamp(5rem, 11vw, 10rem);
+}
+
+@utility hairline {
+  border-color: color-mix(in oklab, currentColor 18%, transparent);
+}
+
+@utility pb-safe {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+
+@utility link-underline {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1px;
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  transition: background-size var(--duration-base) var(--ease-tide);
+  &:hover, &:focus-visible {
+    background-size: 100% 1px;
+  }
+}
+
+/* Form controls */
+@utility field {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid color-mix(in oklab, var(--color-ink) 30%, transparent);
+  padding: 0.85rem 0 0.7rem;
+  color: var(--color-ink);
+  border-radius: 0;
+  transition: border-color var(--duration-quick) ease;
+  &::placeholder {
+    color: color-mix(in oklab, var(--color-ink) 58%, transparent);
+  }
+  &:hover {
+    border-bottom-color: var(--color-ink);
+  }
+  &:focus-visible {
+    outline: none;
+    border-bottom-color: var(--color-terracotta);
+    box-shadow: 0 1px 0 0 var(--color-terracotta);
+  }
+  &[aria-invalid="true"] {
+    border-bottom-color: var(--color-error);
+  }
+}
+
+/* Native <details> accordions animate their content */
+details[open] > .details-body {
+  animation: details-in var(--duration-slow) var(--ease-tide);
+}
+@keyframes details-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Scroll cue */
+@keyframes scroll-cue {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+.scroll-cue-line {
+  animation: scroll-cue 2.4s var(--ease-swell) infinite;
+}
+
+/* Hero entrance (CSS so it runs before hydration — no JS needed for the first frame) */
+@keyframes hero-zoom {
+  from { transform: scale(1.12); }
+  to { transform: scale(1); }
+}
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+.hero-zoom { animation: hero-zoom 2.6s var(--ease-tide) both; }
+.rise-in { animation: rise-in 1.1s var(--ease-tide) both; }
+/* Headline entrance without an opacity fade, so it paints (and counts as LCP) immediately. */
+@keyframes rise-in-solid {
+  from { transform: translateY(18px); }
+  to { transform: none; }
+}
+.rise-in-solid { animation: rise-in-solid 1.2s var(--ease-tide) both; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
