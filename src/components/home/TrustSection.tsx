@@ -1,6 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 import { faqs } from "@/content/experiences";
 import { fullAddress, resort } from "@/content/resort";
+import { LocationMap } from "../explore/LocationMap";
 import { Faq } from "../sections/Faq";
 import { Reveal } from "../motion/Reveal";
 import { ArrowLink } from "../ui/Button";
@@ -14,7 +15,8 @@ export function TrustSection() {
       <div className="container-site grid gap-16 lg:grid-cols-12">
         <div className="lg:col-span-5">
           <Reveal>
-            <SectionHeading eyebrow="Plan your visit" title={<span id="plan-title">Finding us, and good to know</span>} />
+            <SectionHeading eyebrow="Plan your visit" title={<span id="plan-title">Finding us</span>}
+              lead="On the East Coast Road at Mamallapuram — open the map for live directions from wherever you are." />
           </Reveal>
           <Reveal delay={0.1}>
             <dl className="mt-12 space-y-8">
@@ -22,7 +24,7 @@ export function TrustSection() {
                 <dt className="eyebrow text-stone-deep">Where</dt>
                 <dd className="mt-2 text-lg leading-relaxed">{fullAddress}</dd>
                 <dd className="mt-2 flex flex-wrap items-center gap-x-6">
-                  <a href={resort.maps.href} target="_blank" rel="noopener noreferrer" className="eyebrow inline-flex min-h-11 items-center gap-2 text-ocean">
+                  <a href={resort.maps.directionsHref} target="_blank" rel="noopener noreferrer" className="eyebrow inline-flex min-h-11 items-center gap-2 text-ocean">
                     <span className="link-underline pb-1">Get directions</span> <ArrowUpRight aria-hidden className="h-3.5 w-3.5" />
                   </a>
                   <CopyButton text={fullAddress} />
@@ -40,7 +42,7 @@ export function TrustSection() {
               <div>
                 <dt className="eyebrow text-stone-deep">Guest reviews</dt>
                 <dd className="mt-2 leading-relaxed text-ink/75">
-                  We&apos;d rather you hear it from guests directly. Read independent reviews of the resort on Google.
+                  We&apos;d rather you hear it from guests directly. Read independent reviews on the resort&apos;s Google Maps page.
                 </dd>
                 <dd className="mt-3">
                   <a href={resort.maps.reviewsHref} target="_blank" rel="noopener noreferrer" className="eyebrow inline-flex items-center gap-2 text-ocean link-underline pb-1">
@@ -51,9 +53,17 @@ export function TrustSection() {
             </dl>
           </Reveal>
         </div>
-        <Reveal delay={0.15} className="lg:col-span-6 lg:col-start-7">
+        <Reveal delay={0.15} variant="mask" className="lg:col-span-7 lg:col-start-6">
+          <LocationMap tall />
+        </Reveal>
+      </div>
+      <div className="container-site mt-20 grid gap-10 md:mt-28 lg:grid-cols-12">
+        <Reveal className="lg:col-span-4">
+          <h3 className="text-display-sm text-ocean-deep">Good to know</h3>
+          <ArrowLink href="/faq" className="mt-6">All questions</ArrowLink>
+        </Reveal>
+        <Reveal delay={0.1} className="lg:col-span-7 lg:col-start-6">
           <Faq items={top} />
-          <ArrowLink href="/faq" className="mt-10">All questions</ArrowLink>
         </Reveal>
       </div>
     </section>

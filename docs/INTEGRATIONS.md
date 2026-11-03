@@ -4,9 +4,9 @@
 |---|---|---|---|
 | Booking engine | **Not connected** — URL unknown | Validated booking bar → on-site reservation request (`/book`) | Booking-engine URL + its deep-link parameter docs |
 | Enquiry delivery | **Not connected** | Forms validate and show an honest error with phone/email if not configured | Resend API key + sender domain, or a webhook URL |
-| 360° tour | **Not connected** — provider unknown | Designed fallback with call/email | Embeddable tour URL that allows iframes |
+| 360° tour | **Connected** — the resort's Google Maps photo sphere | Click-to-load 360° view on the home page and /explore, "Open in Google Maps" link | — (override with `NEXT_PUBLIC_VIRTUAL_TOUR_URL`) |
 | Payments | Not applicable on this site | No card data is ever collected | Continue using the booking engine's authorised gateway |
-| Google Maps | Working | Directions + reviews links (public URL scheme) | Optional: exact Place ID |
+| Google Maps | **Connected** — the resort's place page (`?cid=12515821109078080145`) | Click-to-load live map, "Get directions" (to 12.63996, 80.20224) and "Open in Google Maps" on home, contact and footer | — |
 
 ## 1. Booking engine
 

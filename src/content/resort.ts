@@ -37,9 +37,29 @@ export const resort = {
   social: [] as { label: string; href: string }[],
   officialSite: "https://www.mamallaresort.com/",
   maps: {
-    /** Google Maps "search" URL format (documented public URL scheme). */
-    href: "https://www.google.com/maps/search/?api=1&query=Mamalla+Beach+Resort+Mahabalipuram",
-    reviewsHref: "https://www.google.com/maps/search/?api=1&query=Mamalla+Beach+Resort+Mahabalipuram+reviews",
+    /** The resort's Google Maps place page (supplied by the resort). Shows directions, photos and reviews. */
+    href: "https://maps.google.com/?cid=12515821109078080145",
+    /** Same place page — reviews are on it. */
+    reviewsHref: "https://maps.google.com/?cid=12515821109078080145",
+    /** Location of the resort's Google Maps 360° photo sphere (supplied by the resort). */
+    lat: 12.6399572,
+    lng: 80.202243,
+    /** Turn-by-turn directions from the visitor's location (Google Maps URLs API). */
+    directionsHref: "https://www.google.com/maps/dir/?api=1&destination=12.6399572%2C80.202243",
+    /** Key-less map embed centred on the resort. */
+    embedSrc: "https://maps.google.com/maps?q=12.6399572,80.202243&z=15&hl=en&output=embed",
+  },
+  /** 360° photo sphere of the resort on Google Maps (supplied by the resort). */
+  virtualTour: {
+    /** Original Google Maps link — opens the 360° view full-screen in Google Maps. */
+    mapsUrl:
+      "https://www.google.com/maps/@12.6399572,80.202243,0a,32.2y,122.27h,96.88t/data=!3m4!1e1!3m2!1sAF1QipN4ltoPey6x3I-wSgafeJsmqJ5J8Cewla4-y8Y9!2e10?source=apiv3",
+    /**
+     * Key-less embed of the same photo sphere (Google Maps "Embed a map" format). The pano id is the
+     * photo's id (AF1QipN4lto…) wrapped as Google expects: base64 of [08 0A 12 2C] + id.
+     */
+    embedUrl:
+      "https://www.google.com/maps/embed?pb=!4v1730600000000!6m8!1m7!1sCAoSLEFGMVFpcE40bHRvUGV5NngzSS13U2dhZmVKc21xSjVKOENld2xhNC15OFk5!2m2!1d12.6399572!2d80.202243!3f122.27!4f6.88!5f0.7820865974627469",
   },
 } as const;
 

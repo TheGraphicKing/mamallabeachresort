@@ -15,7 +15,21 @@ type State = "idle" | "loading" | "ready" | "error";
  * - Shows loading, timeout/error and full-screen states.
  * - When no tour URL is configured, shows a designed fallback with contact actions.
  */
-export function TourEmbed({ url, title = "360° virtual tour of Mamalla Beach Resort" }: { url: string; title?: string }) {
+export function TourEmbed({
+  url,
+  title = "360° view of Mamalla Beach Resort",
+  externalUrl,
+  credit = "360° view on Google Maps. Content loads from Google when you start the tour.",
+  aspect = "aspect-[4/5] sm:aspect-video",
+}: {
+  url: string;
+  title?: string;
+  /** Link for "Open in new tab" (defaults to the embed URL). */
+  externalUrl?: string;
+  credit?: string;
+  aspect?: string;
+}) {
+  const openUrl = externalUrl || url;
   const [state, setState] = useState<State>("idle");
   const [attempt, setAttempt] = useState(0);
   const frameWrap = useRef<HTMLDivElement>(null);
@@ -54,10 +68,10 @@ export function TourEmbed({ url, title = "360° virtual tour of Mamalla Beach Re
             answer any questions about the rooms, pool, lawn and halls.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href={resort.phone.href} className="inline-flex min-h-12 items-center gap-2 bg-ivory px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
+            <a href={resort.phone.href} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-ivory px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
               <Phone aria-hidden className="h-4 w-4" strokeWidth={1.5} /> Call us
             </a>
-            <a href={resort.email.href} className="inline-flex min-h-12 items-center gap-2 border border-ivory/50 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] hover:border-ivory">
+            <a href={resort.email.href} className="inline-flex min-h-12 items-center gap-2 rounded-full border border-ivory/50 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] hover:border-ivory">
               <Mail aria-hidden className="h-4 w-4" strokeWidth={1.5} /> Email us
             </a>
           </div>
@@ -68,7 +82,7 @@ export function TourEmbed({ url, title = "360° virtual tour of Mamalla Beach Re
 
   return (
     <div>
-      <div ref={frameWrap} className="on-dark relative aspect-[4/5] w-full overflow-hidden bg-ocean-deep text-ivory sm:aspect-video">
+      <div ref={frameWrap} className={cn("on-dark relative w-full overflow-hidden rounded-[var(--radius-frame)] bg-ocean-deep text-ivory", aspect)}>
         {state === "idle" || state === "error" ? (
           <>
             <Media media={media.heroShore} className="absolute inset-0 opacity-70" sizes="100vw" labelPosition="top-right" />
@@ -81,10 +95,10 @@ export function TourEmbed({ url, title = "360° virtual tour of Mamalla Beach Re
                     The tour didn&apos;t load. It may be blocked by your network or temporarily unavailable.
                   </p>
                   <div className="mt-6 flex flex-wrap justify-center gap-3">
-                    <button type="button" onClick={start} className="inline-flex min-h-12 items-center gap-2 bg-ivory px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
+                    <button type="button" onClick={start} className="inline-flex min-h-12 items-center gap-2 rounded-full bg-ivory px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
                       <RotateCcw aria-hidden className="h-4 w-4" /> Try again
                     </button>
-                    <a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center border border-ivory/50 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em]">
+                    <a href={openUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center rounded-full border border-ivory/50 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em]">
                       Open in a new tab
                     </a>
                   </div>
@@ -94,12 +108,16 @@ export function TourEmbed({ url, title = "360° virtual tour of Mamalla Beach Re
                   <button
                     type="button"
                     onClick={start}
-                    className="group grid h-28 w-28 place-items-center rounded-full border border-ivory/60 transition-colors hover:bg-ivory hover:text-ocean-deep"
+                    className="group relative grid h-32 w-32 place-items-center rounded-full border border-ivory/60 bg-ivory/10 backdrop-blur-md transition-colors hover:bg-ivory hover:text-ocean-deep"
                   >
-                    <span className="eyebrow">Start tour</span>
+                    <span aria-hidden className="absolute inset-0 animate-ping rounded-full border border-ivory/30 motion-reduce:hidden" />
+                    <span className="flex flex-col items-center gap-1">
+                      <span className="font-display text-3xl leading-none">360°</span>
+                      <span className="eyebrow text-[0.6rem]">Start view</span>
+                    </span>
                   </button>
                   <p className="mt-6 max-w-sm text-sm text-ivory/80">
-                    Drag to look around, pinch or scroll to zoom. On a phone, you can also move your device.
+                    Drag to look around, scroll or pinch to zoom.
                   </p>
                 </>
               )}
@@ -128,15 +146,15 @@ export function TourEmbed({ url, title = "360° virtual tour of Mamalla Beach Re
         )}
       </div>
       <div className="mt-4 flex flex-wrap items-center justify-between gap-4 text-sm text-ink/70">
-        <p>Tour provided by the resort&apos;s 360° partner. Content may load from an external site.</p>
+        <p>{credit}</p>
         <div className="flex gap-2">
           {canFullscreen && state === "ready" && (
-            <button type="button" onClick={fullscreen} className="inline-flex min-h-11 items-center gap-2 border border-ink/20 px-4 hover:border-ink">
+            <button type="button" onClick={fullscreen} className="inline-flex min-h-11 items-center gap-2 rounded-full border border-ink/20 px-5 hover:border-ink">
               <Expand aria-hidden className="h-4 w-4" strokeWidth={1.5} /> Full screen
             </button>
           )}
-          <a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center border border-ink/20 px-4 hover:border-ink">
-            Open in new tab
+          <a href={openUrl} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-full border border-ink/20 px-5 hover:border-ink">
+            {externalUrl ? "Open in Google Maps" : "Open in new tab"}
           </a>
         </div>
       </div>

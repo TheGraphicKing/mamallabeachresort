@@ -5,6 +5,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { PageHero } from "@/components/sections/PageHero";
 import { SectionHeading } from "@/components/ui/Typography";
 import { media } from "@/content/media";
+import { resort } from "@/content/resort";
 import { virtualTourUrl } from "@/lib/config";
 import { pageMetadata } from "@/lib/seo";
 
@@ -31,11 +32,11 @@ export default function ExplorePage() {
             <SectionHeading
               eyebrow="360° virtual tour"
               title={<span id="tour-title">Step inside</span>}
-              lead="The tour loads only when you start it, so this page stays quick on mobile data."
+              lead="The resort's 360° view from Google Maps. It loads only when you start it, so this page stays quick on mobile data."
             />
           </Reveal>
           <div className="mt-12">
-            <TourEmbed url={virtualTourUrl} />
+            <TourEmbed url={virtualTourUrl} externalUrl={resort.virtualTour.mapsUrl} />
           </div>
         </div>
       </section>

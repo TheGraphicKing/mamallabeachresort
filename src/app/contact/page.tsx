@@ -1,5 +1,6 @@
 import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
+import { LocationMap } from "@/components/explore/LocationMap";
 import { EnquiryForm } from "@/components/forms/EnquiryForm";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageHero } from "@/components/sections/PageHero";
@@ -31,7 +32,7 @@ export default function ContactPage() {
             <div>
               <p className="eyebrow flex items-center gap-2 text-stone-deep"><MapPin aria-hidden className="h-4 w-4" /> Address</p>
               <address className="mt-3 text-lg not-italic leading-relaxed">{fullAddress}</address>
-              <a href={resort.maps.href} target="_blank" rel="noopener noreferrer" className="eyebrow mt-4 inline-flex items-center gap-2 text-ocean link-underline pb-1">
+              <a href={resort.maps.directionsHref} target="_blank" rel="noopener noreferrer" className="eyebrow mt-4 inline-flex items-center gap-2 text-ocean link-underline pb-1">
                 Get directions <ArrowUpRight aria-hidden className="h-3.5 w-3.5" />
               </a>
             </div>
@@ -59,25 +60,8 @@ export default function ContactPage() {
           </div>
         </div>
       </section>
-      <section aria-label="Map" className="border-t border-ink/10">
-        <a
-          href={resort.maps.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group on-dark relative flex min-h-[40svh] items-center justify-center overflow-hidden bg-ocean-deep text-ivory"
-        >
-          <svg aria-hidden className="absolute inset-0 h-full w-full opacity-30" preserveAspectRatio="xMidYMid slice" viewBox="0 0 800 400">
-            <path d="M560,0 C540,120 600,220 570,400 L800,400 L800,0 Z" fill="#4f7468" />
-            <path d="M0,200 C200,180 400,230 560,200" stroke="#e5d7bf" strokeWidth="2" fill="none" strokeDasharray="8 8" />
-            <path d="M300,0 C320,120 280,260 320,400" stroke="#e5d7bf" strokeWidth="6" fill="none" />
-            <circle cx="520" cy="205" r="8" fill="#a85a36" />
-          </svg>
-          <span className="relative flex flex-col items-center gap-3 text-center">
-            <span className="eyebrow text-sand">Mamallapuram · Tamil Nadu</span>
-            <span className="font-display text-3xl md:text-4xl">Open in Google Maps</span>
-            <span className="eyebrow inline-flex items-center gap-2">Directions <ArrowUpRight aria-hidden className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" /></span>
-          </span>
-        </a>
+      <section aria-label="Map and directions" className="px-3 pb-16 md:px-6 md:pb-24">
+        <LocationMap />
       </section>
     </>
   );

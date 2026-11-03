@@ -11,6 +11,7 @@ import { GalleryStrip } from "@/components/home/GalleryStrip";
 import { Intro } from "@/components/home/Intro";
 import { RoomsShowcase } from "@/components/home/RoomsShowcase";
 import { TrustSection } from "@/components/home/TrustSection";
+import { VirtualTourSection } from "@/components/home/VirtualTourSection";
 import { HomeHero } from "@/components/sections/HomeHero";
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function HomePage() {
       <HomeHero />
       <FactsStrip />
       <Intro />
+      <VirtualTourSection />
       <RoomsShowcase />
       <AmenitiesGrid />
       <ExperiencesEditorial />

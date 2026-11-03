@@ -1,3 +1,4 @@
+import { resort } from "@/content/resort";
 import type { BookingEngineConfig } from "./booking";
 
 export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.mamallaresort.com").replace(/\/$/, "");
@@ -21,4 +22,6 @@ export const bookingEngine: BookingEngineConfig | null = process.env.NEXT_PUBLIC
     }
   : null;
 
-export const virtualTourUrl = process.env.NEXT_PUBLIC_VIRTUAL_TOUR_URL || "";
+
+/** 360° tour embed: env override, otherwise the resort's Google Maps photo sphere. */
+export const virtualTourUrl = process.env.NEXT_PUBLIC_VIRTUAL_TOUR_URL || resort.virtualTour.embedUrl;

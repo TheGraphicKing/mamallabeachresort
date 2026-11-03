@@ -47,7 +47,7 @@ export function SiteFooter() {
                 Book your stay
               </BookButton>
               <a
-                href={resort.maps.href}
+                href={resort.maps.directionsHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex min-h-12 items-center gap-2 rounded-full border border-ivory/40 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ivory hover:border-ivory"

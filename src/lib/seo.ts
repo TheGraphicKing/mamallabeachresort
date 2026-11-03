@@ -39,6 +39,7 @@ export function resortJsonLd() {
       addressCountry: resort.address.countryCode,
     },
     hasMap: resort.maps.href,
+    geo: { "@type": "GeoCoordinates", latitude: resort.maps.lat, longitude: resort.maps.lng },
     amenityFeature: [
       { "@type": "LocationFeatureSpecification", name: "Outdoor swimming pool", value: true },
       { "@type": "LocationFeatureSpecification", name: "Children's pool", value: true },
