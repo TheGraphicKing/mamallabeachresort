@@ -49,25 +49,50 @@ function NavLinks({ items, pathname }: { items: { label: string; href: string }[
 export function SiteHeader() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
-  const [hidden, setHidden] = useState(false);
+  /** What sits behind the header right now: a dark surface (hero, green panels, footer) or a light one. */
+  const [behind, setBehind] = useState<"dark" | "light">("dark");
   const [menuOpen, setMenuOpen] = useState(false);
-  const lastY = useRef(0);
+  const headerRef = useRef<HTMLElement>(null);
   const menuBtn = useRef<HTMLButtonElement>(null);
   const menuRef = useRef<HTMLDivElement>(null);
   const reduce = useReducedMotion();
 
+  // The header never hides. On scroll/resize we sample what is underneath it and adapt its colours.
   useEffect(() => {
-    const onScroll = () => {
-      const y = window.scrollY;
-      setScrolled(y > 40);
-      setHidden(y > 400 && y > lastY.current + 4);
-      if (y < lastY.current - 4) setHidden(false);
-      lastY.current = y;
+    let frame = 0;
+    const sample = () => {
+      frame = 0;
+      setScrolled(window.scrollY > 40);
+      const header = headerRef.current;
+      if (!header) return;
+      const rect = header.getBoundingClientRect();
+      const y = Math.min(window.innerHeight - 1, rect.bottom - rect.height / 2);
+      let dark = 0;
+      const xs = [0.18, 0.5, 0.82].map((f) => window.innerWidth * f);
+      for (const x of xs) {
+        const under = document
+          .elementsFromPoint(x, y)
+          .find((el) => !header.contains(el) && !el.closest("[data-nav-ignore]"));
+        // Dark surfaces are marked with .on-dark (hero frames, green panels, CTA banner, footer…)
+        if (under?.closest(".on-dark")) dark++;
+      }
+      setBehind(dark >= 2 ? "dark" : "light");
     };
-    onScroll();
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(sample);
+    };
+    sample();
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
+    window.addEventListener("resize", onScroll);
+    // Re-sample after late layout shifts (fonts, images, route changes)
+    const t = setTimeout(sample, 600);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      cancelAnimationFrame(frame);
+      clearTimeout(t);
+    };
+  }, [pathname]);
 
   // Close the menu on navigation.
   useEffect(() => setMenuOpen(false), [pathname]);
@@ -102,8 +127,15 @@ export function SiteHeader() {
     };
   }, [menuOpen]);
 
-  const solid = scrolled && !menuOpen;
-  const light = !solid; // light text over imagery; dark text on the frosted pill
+  /**
+   * Tone:
+   *  - "clear": at the top of a page over the hero → transparent, light text
+   *  - "ink":   over a LIGHT background → solid deep pill, light text
+   *  - "paper": over a DARK background (after scrolling) → light pill, dark text
+   */
+  const tone: "clear" | "ink" | "paper" = menuOpen ? "clear" : behind === "light" ? "ink" : scrolled ? "paper" : "clear";
+  const solid = tone !== "clear";
+  const light = tone !== "paper"; // light text
 
   return (
     <>
@@ -113,18 +145,13 @@ export function SiteHeader() {
       >
         Skip to content
       </a>
-      <header
-        className={cn(
-          "fixed inset-x-0 top-0 z-50 px-3 pt-3 transition-transform duration-500 ease-[var(--ease-tide)] md:px-6 md:pt-5",
-          hidden && !menuOpen && "-translate-y-[130%]",
-        )}
-      >
+      <header ref={headerRef} data-tone={tone} className="fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-6 md:pt-5">
         <div
           className={cn(
             "mx-auto grid h-16 max-w-[92rem] grid-cols-[1fr_auto_1fr] items-center gap-4 rounded-full px-4 transition-[background-color,color,box-shadow,padding] duration-500 ease-[var(--ease-tide)] md:h-[4.5rem] md:px-7",
-            solid
-              ? "bg-paper/85 text-ink shadow-[0_18px_50px_-24px_rgba(23,48,42,0.45)] ring-1 ring-ink/5 backdrop-blur-xl"
-              : "bg-transparent text-ivory",
+            tone === "clear" && "bg-transparent text-ivory",
+            tone === "ink" && "bg-ocean-deep/95 text-ivory shadow-[0_18px_50px_-20px_rgba(10,20,18,0.55)] ring-1 ring-ivory/10 backdrop-blur-xl",
+            tone === "paper" && "bg-paper/92 text-ink shadow-[0_18px_50px_-24px_rgba(0,0,0,0.5)] ring-1 ring-ink/5 backdrop-blur-xl",
             light && "on-dark",
           )}
         >
@@ -178,7 +205,7 @@ export function SiteHeader() {
             <BookButton
               className={cn(
                 "inline-flex min-h-11 items-center rounded-full px-5 text-[0.68rem] font-semibold uppercase tracking-[0.2em] transition-colors md:px-6",
-                solid ? "bg-ocean-deep text-ivory hover:bg-ocean" : "bg-paper text-ocean-deep hover:bg-sand",
+                tone === "paper" ? "bg-ocean-deep text-ivory hover:bg-ocean" : tone === "ink" ? "bg-sand text-ocean-deep hover:bg-ivory" : "bg-paper text-ocean-deep hover:bg-sand",
               )}
             >
               Book<span className="hidden sm:inline xl:hidden 2xl:inline">&nbsp;your stay</span>
