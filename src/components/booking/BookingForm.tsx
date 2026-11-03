@@ -193,7 +193,7 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
             type="submit"
             disabled={submitting}
             className={cn(
-              "group flex min-h-14 items-center justify-center gap-3 rounded-full px-8 text-[0.7rem] font-medium uppercase tracking-[0.22em] transition-colors disabled:opacity-70",
+              "group flex min-h-14 items-center justify-center gap-3 rounded-full px-8 text-[0.7rem] font-semibold uppercase tracking-[0.22em] transition-colors disabled:opacity-70",
               dark ? "bg-sand text-ocean-deep hover:bg-ivory" : "bg-ocean-deep text-ivory hover:bg-ocean",
             )}
           >
@@ -277,7 +277,7 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
             type="submit"
             disabled={submitting}
             className={cn(
-              "mt-6 flex min-h-14 w-full items-center justify-center gap-3 px-8 text-[0.72rem] font-medium uppercase tracking-[0.26em] transition-colors disabled:opacity-70",
+              "mt-6 flex min-h-14 w-full items-center justify-center gap-3 px-8 text-[0.72rem] font-semibold uppercase tracking-[0.26em] transition-colors disabled:opacity-70",
               dark ? "bg-ivory text-ocean-deep hover:bg-sand" : "bg-ocean text-ivory hover:bg-ocean-deep",
             )}
           >

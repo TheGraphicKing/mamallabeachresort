@@ -43,14 +43,14 @@ export function SiteFooter() {
               )}
             </address>
             <div className="flex flex-wrap gap-3">
-              <BookButton className="inline-flex min-h-12 items-center rounded-full bg-ivory px-6 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
+              <BookButton className="inline-flex min-h-12 items-center rounded-full bg-ivory px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
                 Book your stay
               </BookButton>
               <a
                 href={resort.maps.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center gap-2 rounded-full border border-ivory/40 px-6 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-ivory hover:border-ivory"
+                className="inline-flex min-h-12 items-center gap-2 rounded-full border border-ivory/40 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ivory hover:border-ivory"
               >
                 Directions <ArrowUpRight aria-hidden className="h-4 w-4" strokeWidth={1.5} />
               </a>

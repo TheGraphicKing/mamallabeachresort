@@ -93,9 +93,10 @@
   }
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: -0.02em;
-    font-optical-sizing: auto;
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    /* Fixed, low optical size keeps Bodoni's hairlines sturdy at display sizes */
+    font-variation-settings: "opsz" 24;
     text-wrap: balance;
   }
   p {
@@ -128,7 +129,7 @@
   font-size: var(--text-eyebrow);
   letter-spacing: var(--text-eyebrow--letter-spacing);
   text-transform: uppercase;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 @utility section-y {
@@ -239,4 +240,100 @@ details[open] > .details-body {
 .media-bleed,
 .media-bleed .media-slot {
   border-radius: 0;
+}
+
+/* All serif display text (incl. non-heading uses of font-display) gets the sturdier weight */
+.font-display {
+  font-weight: 500;
+  font-variation-settings: "opsz" 24;
+}
+
+/* Photo grade: deeper blacks, richer colour — applied to sample/remote photos only (not illustrations) */
+.media-slot img:not([src^="/art/"]),
+.photo-grade {
+  filter: contrast(1.12) saturate(1.15) brightness(0.97);
+}
+
+/* ===== Selectable palettes (see src/content/themes.ts). Default palette = @theme values ("palm"). ===== */
+[data-theme="midnight"] {
+  --color-ivory: #f4f2ee;
+  --color-ivory-deep: #e6e4de;
+  --color-paper: #fbfaf8;
+  --color-ocean-deep: #0b1e33;
+  --color-ocean: #17365a;
+  --color-sand: #e8d3a2;
+  --color-sand-deep: #c9a25a;
+  --color-brass: #b8914a;
+  --color-brass-deep: #7f6129;
+  --color-seaglass: #a9bfd0;
+  --color-seaglass-deep: #2f5d7c;
+  --color-stone: #868b94;
+  --color-stone-deep: #4f5561;
+  --color-ink: #121822;
+  --color-charcoal: #0a121c;
+  --color-terracotta: #a4502f;
+}
+[data-theme="noir"] {
+  --color-ivory: #f2eee7;
+  --color-ivory-deep: #e5ded2;
+  --color-paper: #faf8f4;
+  --color-ocean-deep: #121212;
+  --color-ocean: #262626;
+  --color-sand: #dcc08a;
+  --color-sand-deep: #b8954f;
+  --color-brass: #b08a45;
+  --color-brass-deep: #7a5c25;
+  --color-seaglass: #bdb8ab;
+  --color-seaglass-deep: #5b5b52;
+  --color-stone: #8a847a;
+  --color-stone-deep: #57524b;
+  --color-ink: #151413;
+  --color-charcoal: #0b0b0b;
+  --color-terracotta: #9c5233;
+}
+[data-theme="laterite"] {
+  --color-ivory: #f6efe6;
+  --color-ivory-deep: #eddfcf;
+  --color-paper: #fcf8f3;
+  --color-ocean-deep: #3b1e14;
+  --color-ocean: #6e3220;
+  --color-sand: #f0c9a0;
+  --color-sand-deep: #d49b66;
+  --color-brass: #c27a45;
+  --color-brass-deep: #8e4a23;
+  --color-seaglass: #d8b8a0;
+  --color-seaglass-deep: #7a4a33;
+  --color-stone: #93807a;
+  --color-stone-deep: #66544a;
+  --color-ink: #24160f;
+  --color-charcoal: #1d110b;
+  --color-terracotta: #a5432a;
+}
+[data-theme="azure"] {
+  --color-ivory: #f3f6f6;
+  --color-ivory-deep: #e1ebec;
+  --color-paper: #fbfdfd;
+  --color-ocean-deep: #08394f;
+  --color-ocean: #0e5a75;
+  --color-sand: #f3d9a6;
+  --color-sand-deep: #d9ae5f;
+  --color-brass: #c08f3a;
+  --color-brass-deep: #7c5a1e;
+  --color-seaglass: #a7d0d3;
+  --color-seaglass-deep: #1d6a70;
+  --color-stone: #7f8d92;
+  --color-stone-deep: #4a5a60;
+  --color-ink: #0f1c22;
+  --color-charcoal: #062433;
+  --color-terracotta: #b5552f;
+}
+
+/* Slow, continuous drift on the hero photograph */
+@keyframes kenburns {
+  from { transform: scale(1.14) translate3d(0, 0, 0); }
+  to { transform: scale(1.04) translate3d(-1.5%, -1%, 0); }
+}
+.hero-kenburns {
+  animation: kenburns 18s var(--ease-tide) both;
+  transform-origin: 60% 50%;
 }

@@ -32,7 +32,7 @@ export default function ExperiencesPage() {
       />
 
       <nav aria-label="On this page" className="sticky top-0 z-30 hidden border-b border-ink/10 bg-ivory/95 backdrop-blur md:block">
-        <ul className="container-site flex gap-8 overflow-x-auto py-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-ink/70">
+        <ul className="container-site flex gap-8 overflow-x-auto py-4 text-[0.7rem] font-semibold uppercase tracking-[0.18em] text-ink/70">
           {experiences.map((e) => (
             <li key={e.slug} className="shrink-0">
               <a href={`#${e.slug}`} className="link-underline hover:text-ink">{e.eyebrow}</a>

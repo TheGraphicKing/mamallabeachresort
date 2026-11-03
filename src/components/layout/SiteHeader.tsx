@@ -25,7 +25,7 @@ function NavLinks({ items, pathname }: { items: { label: string; href: string }[
               href={item.href}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "group/nav relative block py-2 text-[0.7rem] font-medium uppercase tracking-[0.2em] transition-opacity duration-300",
+                "group/nav relative block py-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] transition-opacity duration-300",
                 active ? "opacity-100" : "opacity-75 hover:opacity-100",
               )}
             >
@@ -177,7 +177,7 @@ export function SiteHeader() {
             </a>
             <BookButton
               className={cn(
-                "inline-flex min-h-11 items-center rounded-full px-5 text-[0.68rem] font-medium uppercase tracking-[0.2em] transition-colors md:px-6",
+                "inline-flex min-h-11 items-center rounded-full px-5 text-[0.68rem] font-semibold uppercase tracking-[0.2em] transition-colors md:px-6",
                 solid ? "bg-ocean-deep text-ivory hover:bg-ocean" : "bg-paper text-ocean-deep hover:bg-sand",
               )}
             >
@@ -257,7 +257,7 @@ export function SiteHeader() {
                     </a>
                   </p>
                 </div>
-                <BookButton className="inline-flex min-h-12 w-fit items-center bg-ivory px-7 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-ocean-deep hover:bg-sand">
+                <BookButton className="inline-flex min-h-12 w-fit items-center bg-ivory px-7 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-ocean-deep hover:bg-sand">
                   Book your stay
                 </BookButton>
               </motion.div>

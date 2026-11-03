@@ -46,7 +46,7 @@ export function AmenitiesGrid() {
             </Reveal>
           ))}
           <Reveal as="li" delay={0.18} className="rounded-[var(--radius-card)] bg-ocean-deep p-7 text-ivory on-dark">
-            <p className="text-[0.66rem] font-medium uppercase tracking-[0.24em] text-sand">Planning a visit?</p>
+            <p className="text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-sand">Planning a visit?</p>
             <p className="mt-4 font-display text-2xl leading-snug">Ask us anything about rooms, dining or events.</p>
             <ArrowLink href="/contact" light className="mt-6">Contact the resort</ArrowLink>
           </Reveal>

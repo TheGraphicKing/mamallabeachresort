@@ -19,7 +19,7 @@ export function FactsStrip() {
           {facts.map((f, i) => (
             <Reveal key={f.label} delay={i * 0.07} className="border-ink/10 px-2 text-center lg:border-l lg:first:border-l-0">
               <dd className="font-display text-[clamp(2.4rem,4.2vw,3.8rem)] leading-none text-ocean-deep">{f.n}</dd>
-              <dt className="mt-3 text-[0.66rem] font-medium uppercase tracking-[0.24em] text-stone-deep">{f.label}</dt>
+              <dt className="mt-3 text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-stone-deep">{f.label}</dt>
               <dd className="mt-1 text-sm text-ink/60">{f.note}</dd>
             </Reveal>
           ))}

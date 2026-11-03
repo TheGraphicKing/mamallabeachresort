@@ -49,7 +49,7 @@ export function PageHero({ eyebrow, title, lead, media, breadcrumbs, children, s
           </nav>
         )}
         <p
-          className="rise-in mb-6 inline-flex items-center gap-3 rounded-full border border-ivory/25 bg-ivory/10 px-4 py-2 text-[0.64rem] font-medium uppercase tracking-[0.24em] text-ivory/90 backdrop-blur-md"
+          className="rise-in mb-6 inline-flex items-center gap-3 rounded-full border border-ivory/25 bg-ivory/10 px-4 py-2 text-[0.64rem] font-semibold uppercase tracking-[0.24em] text-ivory/90 backdrop-blur-md"
           style={{ animationDelay: "80ms" }}
         >
           <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-sand" />

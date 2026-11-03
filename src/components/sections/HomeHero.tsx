@@ -15,13 +15,13 @@ export function HomeHero() {
       {/* Framed film: inset from the page edge with soft corners */}
       <div className="on-dark relative isolate flex min-h-[calc(100svh-1.5rem)] flex-col justify-end overflow-hidden rounded-[var(--radius-frame)] bg-ocean-deep text-ivory md:min-h-[calc(100svh-2.5rem)]">
         <HeroVideo poster={heroVideo.poster} sources={videoSources} className="-z-20" />
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ocean-deep/90 via-ocean-deep/25 to-ocean-deep/45" />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ocean-deep/90 via-ocean-deep/20 to-ocean-deep/35" />
         <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_10%_90%,rgba(23,48,42,0.65),transparent_55%)]" />
 
         <div className="grid w-full items-end gap-10 px-6 pt-36 pb-16 md:px-12 md:pb-44 lg:grid-cols-12 lg:px-16 lg:pb-32">
           <div className="lg:col-span-8">
             <p
-              className="rise-in inline-flex items-center gap-3 rounded-full border border-ivory/25 bg-ivory/10 px-4 py-2 text-[0.66rem] font-medium uppercase tracking-[0.24em] text-ivory/90 backdrop-blur-md"
+              className="rise-in inline-flex items-center gap-3 rounded-full border border-ivory/25 bg-ivory/10 px-4 py-2 text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-ivory/90 backdrop-blur-md"
               style={{ animationDelay: "150ms" }}
             >
               <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-sand" />
@@ -31,7 +31,7 @@ export function HomeHero() {
               Where the coast
               <span className="block italic text-sand">slows you down</span>
             </h1>
-            <p className="rise-in mt-7 max-w-lg text-lead font-light text-ivory/85" style={{ animationDelay: "420ms" }}>
+            <p className="rise-in mt-7 max-w-lg text-lead text-ivory/85" style={{ animationDelay: "420ms" }}>
               Pool days, sea air and long evenings on the East Coast Road — in the temple town of Mamallapuram.
             </p>
             <div className="rise-in mt-9 flex flex-wrap gap-3" style={{ animationDelay: "560ms" }}>
@@ -52,7 +52,7 @@ export function HomeHero() {
             >
               <Media media={media.shoreTemple} sizes="120px" className="aspect-square w-24 shrink-0 rounded-[1.1rem]" showLabel={false} />
               <span className="min-w-0">
-                <span className="block text-[0.62rem] font-medium uppercase tracking-[0.24em] text-sand">Nearby</span>
+                <span className="block text-[0.62rem] font-semibold uppercase tracking-[0.24em] text-sand">Nearby</span>
                 <span className="mt-1 block font-display text-xl leading-tight">Discover Mahabalipuram</span>
                 <span className="mt-1 block text-xs text-ivory/70">UNESCO-listed monuments along the coast</span>
               </span>

@@ -6,7 +6,7 @@ import { cn } from "@/lib/cn";
 type Variant = "primary" | "secondary" | "light" | "outline-light" | "ghost";
 
 const base =
-  "group inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-7 py-3 text-[0.7rem] font-medium uppercase tracking-[0.22em] transition-[background-color,color,border-color,box-shadow,transform] duration-300 ease-[var(--ease-tide)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60";
+  "group inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-7 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.22em] transition-[background-color,color,border-color,box-shadow,transform] duration-300 ease-[var(--ease-tide)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
   primary: "bg-ocean-deep text-ivory hover:bg-ocean shadow-[0_12px_30px_-14px_rgba(23,48,42,0.7)]",

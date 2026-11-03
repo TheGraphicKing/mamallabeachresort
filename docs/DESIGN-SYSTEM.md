@@ -21,13 +21,24 @@ rounded image cards, amenity tiles, a bento experiences grid, deep palm-green pa
 | `stone-deep` | #5a5247 | Labels and captions |
 | `ink` | #1d211e | Body text |
 
+## Palettes
+Five palettes, switchable live from the on-site **Preview** panel (saved per browser):
+`palm` (default), `midnight`, `noir`, `laterite`, `azure`. Defined as token overrides under
+`[data-theme="…"]` in `globals.css`; listed in `src/content/themes.ts`. All meet WCAG AA for text.
+Set the launch palette with `NEXT_PUBLIC_THEME` and hide the panel with `NEXT_PUBLIC_PREVIEW_PANEL=off`.
+
+## Photography grade
+Remote photos get `contrast(1.12) saturate(1.15) brightness(0.97)` for deeper, richer images.
+Remove the rule in `globals.css` once real, professionally graded resort photography is in place.
+
 ## Shape
 `--radius-media` 1.75rem (images), `--radius-card` 1.5rem (tiles), `--radius-frame` 2.25rem (hero, panels, footer).
 Buttons, chips, nav and booking bar are fully rounded pills. Full-bleed parallax layers use `.media-bleed`.
 
 ## Typography
 - Display: **Bodoni Moda** (variable, optical sizing, roman + italic) — high-contrast didone for an editorial, couture feel.
-- Text & labels: **Jost** 300/400/500 — geometric, Futura-like; labels in uppercase with 0.26–0.32em tracking.
+- Display weight 500 with a fixed optical size (`opsz 24`) so hairlines stay sturdy at large sizes.
+- Text & labels: **Jost** 400/500/600 — geometric, Futura-like; labels in uppercase with 0.26–0.32em tracking.
 - Scale: `text-display-xl` (hero), `-lg`, `-md`, `-sm`, `text-lead`, `eyebrow` (0.68rem, 0.32em).
 - One italic champagne/bronze phrase per headline at most.
 

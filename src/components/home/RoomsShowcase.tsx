@@ -46,7 +46,7 @@ export function RoomsShowcase() {
                 </Link>
                 <div className="flex flex-col gap-6 px-4 pt-7 pb-5 md:flex-row md:items-end md:justify-between">
                   <div>
-                    <p className="text-[0.66rem] font-medium uppercase tracking-[0.24em] text-stone-deep">Room 0{i + 1}</p>
+                    <p className="text-[0.66rem] font-semibold uppercase tracking-[0.24em] text-stone-deep">Room 0{i + 1}</p>
                     <h3 className="mt-2 font-display text-3xl text-ocean-deep md:text-4xl">
                       <Link href={`/rooms/${room.slug}`} className="link-underline">{room.name}</Link>
                     </h3>

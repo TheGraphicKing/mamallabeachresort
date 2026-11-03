@@ -17,11 +17,11 @@ export function FinalCta({ title = "The coast is calling.", lead = "Choose your 
         <div aria-hidden className="absolute inset-0 -z-10 bg-ocean-deep/55" />
         <div className="flex min-h-[70svh] flex-col items-center justify-center px-6 py-24 text-center">
           <Reveal>
-            <p className="inline-flex rounded-full border border-ivory/25 bg-ivory/10 px-4 py-2 text-[0.64rem] font-medium uppercase tracking-[0.24em] backdrop-blur-md">
+            <p className="inline-flex rounded-full border border-ivory/25 bg-ivory/10 px-4 py-2 text-[0.64rem] font-semibold uppercase tracking-[0.24em] backdrop-blur-md">
               Plan your stay
             </p>
             <h2 id="final-cta-title" className="mx-auto mt-7 max-w-4xl text-display-lg">{title}</h2>
-            <p className="mx-auto mt-6 max-w-xl text-lead font-light text-ivory/85">{lead}</p>
+            <p className="mx-auto mt-6 max-w-xl text-lead text-ivory/85">{lead}</p>
             <div className="mt-10 flex flex-wrap justify-center gap-3">
               <BookButton className={buttonClass("light", "pr-5")}>
                 Check availability <ArrowDot />

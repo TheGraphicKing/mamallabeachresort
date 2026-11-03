@@ -3,6 +3,9 @@ import { Bodoni_Moda, Jost } from "next/font/google";
 import { BookingProvider } from "@/components/booking/BookingDrawer";
 import { MobileBookBar } from "@/components/layout/MobileBookBar";
 import { MotionProvider } from "@/components/motion/MotionProvider";
+import { PreviewPanel } from "@/components/preview/PreviewPanel";
+import { PreviewProvider, themeBootScript } from "@/components/preview/PreviewProvider";
+import { defaultTheme, showPreviewPanel } from "@/content/themes";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { resort } from "@/content/resort";
@@ -19,7 +22,7 @@ const display = Bodoni_Moda({
 });
 const sans = Jost({
   subsets: ["latin"],
-  weight: ["300", "400", "500"],
+  weight: ["400", "500", "600"],
   variable: "--font-jost",
   display: "swap",
 });
@@ -45,8 +48,9 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-IN" className={`${display.variable} ${sans.variable}`}>
+    <html lang="en-IN" data-theme={defaultTheme} suppressHydrationWarning className={`${display.variable} ${sans.variable}`}>
       <head>
+        {showPreviewPanel && <script dangerouslySetInnerHTML={{ __html: themeBootScript }} />}
         <link rel="preconnect" href="https://images.unsplash.com" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
         <noscript>
@@ -56,6 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body>
         <MotionProvider>
+        <PreviewProvider enabled={showPreviewPanel}>
         <BookingProvider>
           <SiteHeader />
           <main id="main" tabIndex={-1} className="outline-none">
@@ -64,6 +69,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <SiteFooter />
           <MobileBookBar />
         </BookingProvider>
+        {showPreviewPanel && <PreviewPanel />}
+        </PreviewProvider>
         </MotionProvider>
         <script
           type="application/ld+json"

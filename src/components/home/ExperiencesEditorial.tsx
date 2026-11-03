@@ -53,7 +53,7 @@ export function ExperiencesEditorial() {
                   <ArrowUpRight className="h-4 w-4" strokeWidth={1.6} />
                 </span>
                 <span className="absolute inset-x-0 bottom-0 p-6 md:p-7">
-                  <span className="inline-block rounded-full border border-ivory/25 bg-ivory/10 px-3 py-1 text-[0.62rem] font-medium uppercase tracking-[0.22em] backdrop-blur-md">
+                  <span className="inline-block rounded-full border border-ivory/25 bg-ivory/10 px-3 py-1 text-[0.62rem] font-semibold uppercase tracking-[0.22em] backdrop-blur-md">
                     {e.eyebrow}
                   </span>
                   <span className={cn("mt-3 block font-display leading-tight", i === 0 ? "text-3xl md:text-5xl" : "text-2xl")}>{e.title}</span>

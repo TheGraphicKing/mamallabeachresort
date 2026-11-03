@@ -34,7 +34,7 @@ export function Media({
   const label = showLabel && (
     <span
       className={cn(
-        "pointer-events-none absolute z-[1] bg-ivory/80 px-2 py-1 text-[0.6rem] font-medium uppercase tracking-[0.18em] text-ink/70 backdrop-blur-sm",
+        "pointer-events-none absolute z-[1] bg-ivory/80 px-2 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.18em] text-ink/70 backdrop-blur-sm",
         "media-fallback-label",
         labelPosition === "bottom-left" && "bottom-3 left-3",
         labelPosition === "bottom-right" && "bottom-3 right-3",

@@ -54,10 +54,10 @@ export function TourEmbed({ url, title = "360° virtual tour of Mamalla Beach Re
             answer any questions about the rooms, pool, lawn and halls.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <a href={resort.phone.href} className="inline-flex min-h-12 items-center gap-2 bg-ivory px-6 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
+            <a href={resort.phone.href} className="inline-flex min-h-12 items-center gap-2 bg-ivory px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
               <Phone aria-hidden className="h-4 w-4" strokeWidth={1.5} /> Call us
             </a>
-            <a href={resort.email.href} className="inline-flex min-h-12 items-center gap-2 border border-ivory/50 px-6 text-[0.75rem] font-medium uppercase tracking-[0.18em] hover:border-ivory">
+            <a href={resort.email.href} className="inline-flex min-h-12 items-center gap-2 border border-ivory/50 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] hover:border-ivory">
               <Mail aria-hidden className="h-4 w-4" strokeWidth={1.5} /> Email us
             </a>
           </div>
@@ -81,10 +81,10 @@ export function TourEmbed({ url, title = "360° virtual tour of Mamalla Beach Re
                     The tour didn&apos;t load. It may be blocked by your network or temporarily unavailable.
                   </p>
                   <div className="mt-6 flex flex-wrap justify-center gap-3">
-                    <button type="button" onClick={start} className="inline-flex min-h-12 items-center gap-2 bg-ivory px-6 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
+                    <button type="button" onClick={start} className="inline-flex min-h-12 items-center gap-2 bg-ivory px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
                       <RotateCcw aria-hidden className="h-4 w-4" /> Try again
                     </button>
-                    <a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center border border-ivory/50 px-6 text-[0.75rem] font-medium uppercase tracking-[0.18em]">
+                    <a href={url} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-12 items-center border border-ivory/50 px-6 text-[0.75rem] font-semibold uppercase tracking-[0.18em]">
                       Open in a new tab
                     </a>
                   </div>

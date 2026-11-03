@@ -298,6 +298,50 @@ export const galleryMedia: MediaAsset[] = [
 ];
 
 /**
+ * Hero seashore photographs (SAMPLE, Unsplash). Selectable in the on-site Preview panel; index 0 is the default.
+ * Not previewable from the build environment — pick the one that looks best on the live site.
+ */
+export const heroOptions: { name: string; media: MediaAsset }[] = [
+  {
+    name: "Golden-hour shore",
+    media: { ...media.heroShore, id: "hero-1" },
+  },
+  {
+    name: "Waves at sunset",
+    media: {
+      id: "hero-2",
+      photos: u("1505142468610-359e7d316be0", "1473116763249-2faaef81ccda"),
+      credit: UNSPLASH,
+      alt: "Waves rolling onto the shore under a warm sunset sky",
+      scene: "dusk",
+      category: "Pool & Beach",
+    },
+  },
+  {
+    name: "Clear water beach",
+    media: {
+      id: "hero-3",
+      photos: u("1519046904884-53103b34b206", "1471922694854-ff1b63b20054"),
+      credit: UNSPLASH,
+      alt: "A sandy beach meeting clear, bright sea",
+      scene: "shore",
+      category: "Pool & Beach",
+    },
+  },
+  {
+    name: "Shoreline from above",
+    media: {
+      id: "hero-4",
+      photos: u("1510414842594-a61c69b5ae57", "1505228395891-9a51e7e86bf6"),
+      credit: UNSPLASH,
+      alt: "Surf lines on a beach seen from above",
+      scene: "shore",
+      category: "Pool & Beach",
+    },
+  },
+];
+
+/**
  * Hero film — SAMPLE stock footage, tried in order; the hero photo shows until (and unless) one plays.
  * Pexels videos are free to use (Pexels License). These URLs could not be previewed from the build
  * environment — check them on the live site. To use the resort's own film, set NEXT_PUBLIC_HERO_VIDEO_URL
@@ -306,7 +350,9 @@ export const galleryMedia: MediaAsset[] = [
  */
 export const heroVideo = {
   poster: media.heroShore,
-  sources: [
+  /** Off by default — the hero is a still seashore photo. Set NEXT_PUBLIC_HERO_VIDEO_URL to add a film. */
+  sources: [] as string[],
+  sampleSources: [
     "https://videos.pexels.com/video-files/1093662/1093662-hd_1920_1080_30fps.mp4",
     "https://videos.pexels.com/video-files/1918465/1918465-hd_1920_1080_24fps.mp4",
     "https://videos.pexels.com/video-files/2169880/2169880-hd_1920_1080_30fps.mp4",

@@ -2,8 +2,10 @@
 
 import { Pause, Play } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { heroOptions } from "@/content/media";
 import type { MediaAsset } from "@/content/types";
 import { cn } from "@/lib/cn";
+import { usePreview } from "../preview/PreviewProvider";
 import { RemotePhoto } from "./RemotePhoto";
 
 /**
@@ -18,6 +20,8 @@ export function HeroVideo({ poster, sources, className }: { poster: MediaAsset; 
   const [playing, setPlaying] = useState(false);
   const [paused, setPaused] = useState(false);
   const ref = useRef<HTMLVideoElement>(null);
+  const { hero } = usePreview();
+  const still = heroOptions[hero]?.media ?? poster;
 
   useEffect(() => {
     const wide = window.matchMedia("(min-width: 768px)").matches;
@@ -41,12 +45,13 @@ export function HeroVideo({ poster, sources, className }: { poster: MediaAsset; 
   return (
     <div className={cn("absolute inset-0", className)}>
       <RemotePhoto
-        sources={poster.photos ?? []}
-        alt={poster.alt}
+        key={still.id}
+        sources={still.photos ?? []}
+        alt={still.alt}
         sizes="100vw"
         priority
-        className="hero-zoom"
-        fallbackScene={poster.scene}
+        className="hero-kenburns photo-grade"
+        fallbackScene={still.scene}
       />
       {enabled && (
         <video
@@ -73,7 +78,7 @@ export function HeroVideo({ poster, sources, className }: { poster: MediaAsset; 
         <button
           type="button"
           onClick={toggle}
-          className="on-dark absolute top-28 right-6 z-10 hidden h-10 items-center rounded-full gap-2 border border-ivory/30 bg-ocean-deep/30 px-3 text-[0.62rem] font-medium uppercase tracking-[0.26em] text-ivory/85 backdrop-blur-sm transition-colors hover:bg-ocean-deep/60 md:flex"
+          className="on-dark absolute top-28 right-6 z-10 hidden h-10 items-center rounded-full gap-2 border border-ivory/30 bg-ocean-deep/30 px-3 text-[0.62rem] font-semibold uppercase tracking-[0.26em] text-ivory/85 backdrop-blur-sm transition-colors hover:bg-ocean-deep/60 md:flex"
           aria-label={paused ? "Play background video" : "Pause background video"}
         >
           {paused ? <Play aria-hidden className="h-3.5 w-3.5" /> : <Pause aria-hidden className="h-3.5 w-3.5" />}
