@@ -1,29 +1,30 @@
-# Design system — "Granite & Tide"
+# Design system — "Nocturne"
 
 Tokens live in `src/app/globals.css` (`@theme`). Use the Tailwind utilities they generate
 (`bg-ocean`, `text-display-md`, `ease-[var(--ease-tide)]`, …) rather than raw values.
 
-## Colour
+## Colour — night lagoon, parchment, champagne
+Inspired by the restraint of top resort brands (dark cinematic heroes, warm paper tones, a single metallic accent).
+
 | Token | Hex | Use |
 |---|---|---|
-| `ivory` | #f7f2e9 | Page background |
-| `ivory-deep` | #efe6d6 | Alternate section background, panels |
-| `sand` / `sand-deep` | #e5d7bf / #cdb894 | Accents on dark, image placeholders |
-| `stone` / `stone-deep` | #8f8371 / #5f564a | Eyebrows, captions (stone-deep for AA text) |
-| `seaglass` / `seaglass-deep` | #a7c1b5 / #4f7468 | Range highlight, italic accents, icons |
-| `ocean` / `ocean-deep` | #1f3a4b / #12232f | Primary buttons, headings, dark sections, footer |
-| `charcoal` | #1f2326 | Events section contrast |
-| `ink` | #2b2925 | Body text |
-| `terracotta` | #a85a36 | Focus ring, selected map pin, required marks — sparingly |
-| `brass` | #a88752 | Bullets, notice rule |
-
-Contrast: `ink` on `ivory` ≈ 13:1; `stone-deep` on `ivory` ≈ 6.5:1; `ivory` on `ocean-deep` ≈ 14:1.
+| `ocean-deep` | #0d1a1c | Night lagoon — hero, dark sections, scrolled header, footer, primary buttons |
+| `ocean` | #1b3134 | Secondary dark surface |
+| `ivory` | #f4efe6 | Parchment — page background, light text on dark |
+| `ivory-deep` | #eae2d4 | Alternate parchment band |
+| `sand` / `sand-deep` | #e2cfae / #c4a574 | Champagne — accents on dark, glass-bar CTA |
+| `brass` | #b8955c | Lines, dots, rules (not text on light) |
+| `brass-deep` | #87672f | Bronze accent text on parchment (4.6:1) |
+| `stone-deep` | #5c5348 | Eyebrows and captions on parchment (6.6:1) |
+| `seaglass-deep` | #46675e | Italic accents, icons |
+| `ink` | #1f1d1a | Body text (14.7:1 on parchment) |
+| `terracotta` | #9c5233 | Laterite — focus ring, selected map pin |
 
 ## Typography
-- Display: **Cormorant Garamond** 400/500 + italic (via `next/font`, self-hosted, `display: swap`).
-- Interface: **Manrope** 400/500/600.
-- Scale: `text-display-xl` (hero), `-lg` (page titles), `-md` (section titles), `-sm` (sub-titles), `text-lead`, `eyebrow` (0.72rem, 0.24em tracking, uppercase).
-- Italic serif in `sand` / `seaglass-deep` marks the emotional half of a headline — once per heading at most.
+- Display: **Bodoni Moda** (variable, optical sizing, roman + italic) — high-contrast didone for an editorial, couture feel.
+- Text & labels: **Jost** 300/400/500 — geometric, Futura-like; labels in uppercase with 0.26–0.32em tracking.
+- Scale: `text-display-xl` (hero), `-lg`, `-md`, `-sm`, `text-lead`, `eyebrow` (0.68rem, 0.32em).
+- One italic champagne/bronze phrase per headline at most.
 
 ## Layout
 - `container-site`: max 82rem, gutters 1.25rem → 2.5rem (md) → 3.5rem (xl), respects safe-area.
@@ -45,7 +46,8 @@ Contrast: `ink` on `ivory` ≈ 13:1; `stone-deep` on `ivory` ≈ 6.5:1; `ivory` 
 - Easing: `--ease-tide` cubic-bezier(0.22, 1, 0.36, 1) for reveals; `--ease-swell` (0.65, 0, 0.35, 1) for menu curtains.
 - Durations: quick 180ms (hover), base 320ms (UI), slow 700ms+ (reveals, 0.9–1.3s for image masks).
 - Hierarchy: cinematic moments = hero zoom, image mask reveals, parallax bands, menu curtain. Everything else is a short fade or colour change.
-- Hero entrance is CSS (runs before hydration). Page transitions skip the first render.
+- Hero: muted film over a photo poster (desktop only, honours reduced-motion and data-saver, pause control); CSS entrance runs before hydration.
+- Page transitions skip the first render.
 - `prefers-reduced-motion`: Framer `MotionConfig reducedMotion="user"` + CSS override; parallax disabled.
 - Library choice: Framer Motion only. GSAP was not needed.
 

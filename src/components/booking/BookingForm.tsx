@@ -124,9 +124,9 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
       onClick={() => setPanel(panel === key ? null : key)}
       className={cn(
         "group flex w-full items-center gap-4 text-left transition-colors",
-        layout === "bar" ? "h-full px-6 py-5 hover:bg-ivory-deep/70" : "border-b py-4",
+        layout === "bar" ? cn("h-full px-6 py-5", dark ? "hover:bg-ivory/10" : "hover:bg-ivory-deep/70") : "border-b py-4",
         layout === "panel" && (dark ? "border-ivory/20" : "border-ink/15"),
-        panel === key && layout === "bar" && "bg-ivory-deep",
+        panel === key && layout === "bar" && (dark ? "bg-ivory/10" : "bg-ivory-deep"),
         "data-[invalid]:shadow-[inset_0_-2px_0_0_var(--color-error)]",
       )}
     >
@@ -172,7 +172,14 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
   return (
     <form ref={rootRef} onSubmit={submit} noValidate aria-label="Book your stay" className="relative">
       {layout === "bar" ? (
-        <div className={cn("grid bg-ivory text-ink shadow-[0_30px_80px_-40px_rgba(18,35,47,0.6)] md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.25fr_auto]")}>
+        <div
+          className={cn(
+            "grid md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.25fr_auto]",
+            dark
+              ? "border border-ivory/20 bg-ocean-deep/45 text-ivory shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] backdrop-blur-xl [&>div]:border-ivory/15"
+              : "bg-ivory text-ink shadow-[0_30px_80px_-40px_rgba(18,35,47,0.6)]",
+          )}
+        >
           <div className="border-b border-ink/10 md:border-r lg:border-b-0">
             {fieldBtn("checkIn", "Arrival", fmt(q.checkIn), "Add date", CalendarDays)}
           </div>
@@ -185,7 +192,10 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
           <button
             type="submit"
             disabled={submitting}
-            className="group flex min-h-16 items-center justify-center gap-3 bg-ocean px-8 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-ivory transition-colors hover:bg-ocean-deep disabled:opacity-70"
+            className={cn(
+              "group flex min-h-16 items-center justify-center gap-3 px-8 text-[0.72rem] font-medium uppercase tracking-[0.26em] transition-colors disabled:opacity-70",
+              dark ? "bg-sand text-ocean-deep hover:bg-ivory" : "bg-ocean-deep text-ivory hover:bg-ocean",
+            )}
           >
             {submitting ? <Loader2 className="h-4 w-4 animate-spin" aria-hidden /> : null}
             {submitting ? "One moment" : submitLabel}
@@ -267,7 +277,7 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
             type="submit"
             disabled={submitting}
             className={cn(
-              "mt-6 flex min-h-14 w-full items-center justify-center gap-3 px-8 text-[0.78rem] font-semibold uppercase tracking-[0.18em] transition-colors disabled:opacity-70",
+              "mt-6 flex min-h-14 w-full items-center justify-center gap-3 px-8 text-[0.72rem] font-medium uppercase tracking-[0.26em] transition-colors disabled:opacity-70",
               dark ? "bg-ivory text-ocean-deep hover:bg-sand" : "bg-ocean text-ivory hover:bg-ocean-deep",
             )}
           >

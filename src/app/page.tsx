@@ -8,6 +8,7 @@ import { FinalCta } from "@/components/home/FinalCta";
 import { GalleryStrip } from "@/components/home/GalleryStrip";
 import { Intro } from "@/components/home/Intro";
 import { RoomsShowcase } from "@/components/home/RoomsShowcase";
+import { Statement } from "@/components/home/Statement";
 import { TrustSection } from "@/components/home/TrustSection";
 import { HomeHero } from "@/components/sections/HomeHero";
 
@@ -19,6 +20,7 @@ export default function HomePage() {
   return (
     <>
       <HomeHero />
+      <Statement />
       <Intro />
       <RoomsShowcase />
       <ExperiencesEditorial />

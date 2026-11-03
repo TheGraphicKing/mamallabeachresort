@@ -33,7 +33,7 @@ export function MobileBookBar() {
       >
         <Phone aria-hidden className="h-4 w-4" strokeWidth={1.5} /> Call
       </a>
-      <BookButton className="flex min-h-14 items-center justify-center bg-ocean text-[0.75rem] font-semibold uppercase tracking-[0.18em] text-ivory">
+      <BookButton className="flex min-h-14 items-center justify-center bg-ocean text-[0.75rem] font-medium uppercase tracking-[0.18em] text-ivory">
         Check availability
       </BookButton>
     </div>

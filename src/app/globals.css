@@ -1,45 +1,46 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Design system — "Granite & Tide"
+   Design system — "Nocturne"
    Colour, type, spacing and motion tokens. See docs/DESIGN-SYSTEM.md.
    ========================================================================== */
 
 @theme {
-  /* Colour */
-  --color-ivory: #f7f2e9;
-  --color-ivory-deep: #efe6d6;
-  --color-sand: #e5d7bf;
-  --color-sand-deep: #cdb894;
-  --color-stone: #8f8371;
-  --color-stone-deep: #5f564a;
-  --color-seaglass: #a7c1b5;
-  --color-seaglass-deep: #4f7468;
-  --color-ocean: #1f3a4b;
-  --color-ocean-deep: #12232f;
-  --color-charcoal: #1f2326;
-  --color-ink: #2b2925;
-  --color-terracotta: #a85a36;
-  --color-brass: #a88752;
+  /* Colour — "Nocturne": night lagoon, parchment, champagne */
+  --color-ivory: #f4efe6;
+  --color-ivory-deep: #eae2d4;
+  --color-sand: #e2cfae;
+  --color-sand-deep: #c4a574;
+  --color-stone: #8a7f70;
+  --color-stone-deep: #5c5348;
+  --color-seaglass: #9fb8ad;
+  --color-seaglass-deep: #46675e;
+  --color-ocean: #1b3134;
+  --color-ocean-deep: #0d1a1c;
+  --color-charcoal: #161a1a;
+  --color-ink: #1f1d1a;
+  --color-terracotta: #9c5233;
+  --color-brass: #b8955c;
+  --color-brass-deep: #87672f;
   --color-error: #9b2c22;
   --color-success: #2f6a4f;
 
-  /* Type */
-  --font-display: var(--font-cormorant), "Cormorant Garamond", Georgia, "Times New Roman", serif;
-  --font-sans: var(--font-manrope), "Manrope", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Type — Bodoni Moda (display) + Jost (text & labels) */
+  --font-display: var(--font-bodoni), "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --font-sans: var(--font-jost), "Jost", "Futura", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 
-  --text-eyebrow: 0.72rem;
-  --text-eyebrow--letter-spacing: 0.24em;
-  --text-display-xl: clamp(3.1rem, 8.2vw, 8.5rem);
-  --text-display-xl--line-height: 0.95;
-  --text-display-lg: clamp(2.5rem, 5.6vw, 5.5rem);
-  --text-display-lg--line-height: 1;
-  --text-display-md: clamp(2rem, 3.8vw, 3.6rem);
-  --text-display-md--line-height: 1.06;
-  --text-display-sm: clamp(1.55rem, 2.4vw, 2.25rem);
-  --text-display-sm--line-height: 1.15;
-  --text-lead: clamp(1.08rem, 1.4vw, 1.3rem);
-  --text-lead--line-height: 1.65;
+  --text-eyebrow: 0.68rem;
+  --text-eyebrow--letter-spacing: 0.32em;
+  --text-display-xl: clamp(2.9rem, 7.4vw, 7.6rem);
+  --text-display-xl--line-height: 1;
+  --text-display-lg: clamp(2.4rem, 5.2vw, 5.2rem);
+  --text-display-lg--line-height: 1.04;
+  --text-display-md: clamp(1.95rem, 3.5vw, 3.4rem);
+  --text-display-md--line-height: 1.1;
+  --text-display-sm: clamp(1.5rem, 2.2vw, 2.1rem);
+  --text-display-sm--line-height: 1.18;
+  --text-lead: clamp(1.08rem, 1.35vw, 1.28rem);
+  --text-lead--line-height: 1.7;
 
   /* Layout */
   --container-content: 82rem;
@@ -66,7 +67,8 @@
     background: var(--color-ivory);
     color: var(--color-ink);
     font-family: var(--font-sans);
-    font-feature-settings: "ss01", "cv11";
+    font-weight: 400;
+    font-size: 1.0625rem;
     -webkit-font-smoothing: antialiased;
     overflow-x: clip;
   }
@@ -86,7 +88,8 @@
   h1, h2, h3, h4 {
     font-family: var(--font-display);
     font-weight: 400;
-    letter-spacing: -0.012em;
+    letter-spacing: -0.02em;
+    font-optical-sizing: auto;
     text-wrap: balance;
   }
   p {
@@ -119,7 +122,7 @@
   font-size: var(--text-eyebrow);
   letter-spacing: var(--text-eyebrow--letter-spacing);
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 500;
 }
 
 @utility section-y {

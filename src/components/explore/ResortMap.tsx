@@ -95,7 +95,7 @@ export function ResortMap({ tone = "light" }: { tone?: "light" | "dark" }) {
                 <span
                   aria-hidden
                   className={cn(
-                    "relative grid h-9 w-9 place-items-center rounded-full text-[0.7rem] font-semibold tabular-nums transition-all duration-300 md:h-10 md:w-10",
+                    "relative grid h-9 w-9 place-items-center rounded-full text-[0.7rem] font-medium tabular-nums transition-all duration-300 md:h-10 md:w-10",
                     selected ? "scale-110 bg-terracotta text-ivory" : "bg-ivory text-ocean-deep group-hover:bg-sand",
                   )}
                 >

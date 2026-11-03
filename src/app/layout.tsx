@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Manrope } from "next/font/google";
+import { Bodoni_Moda, Jost } from "next/font/google";
 import { BookingProvider } from "@/components/booking/BookingDrawer";
 import { MobileBookBar } from "@/components/layout/MobileBookBar";
 import { MotionProvider } from "@/components/motion/MotionProvider";
@@ -10,17 +10,17 @@ import { siteUrl } from "@/lib/config";
 import { resortJsonLd } from "@/lib/seo";
 import "./globals.css";
 
-const display = Cormorant_Garamond({
+const display = Bodoni_Moda({
   subsets: ["latin"],
-  weight: ["400", "500"],
   style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  axes: ["opsz"],
+  variable: "--font-bodoni",
   display: "swap",
 });
-const sans = Manrope({
+const sans = Jost({
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-manrope",
+  weight: ["300", "400", "500"],
+  variable: "--font-jost",
   display: "swap",
 });
 
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#12232f",
+  themeColor: "#0d1a1c",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",

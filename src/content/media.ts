@@ -296,3 +296,20 @@ export const galleryMedia: MediaAsset[] = [
   media.celebrationTable,
   media.roomDeluxe2,
 ];
+
+/**
+ * Hero film — SAMPLE stock footage, tried in order; the hero photo shows until (and unless) one plays.
+ * Pexels videos are free to use (Pexels License). These URLs could not be previewed from the build
+ * environment — check them on the live site. To use the resort's own film, set NEXT_PUBLIC_HERO_VIDEO_URL
+ * (e.g. "/video/hero.mp4" placed in /public/video/) — it is tried first.
+ * Keep hero films short (10–20 s), muted, 1080p, H.264 MP4, ideally under 8 MB.
+ */
+export const heroVideo = {
+  poster: media.heroShore,
+  sources: [
+    "https://videos.pexels.com/video-files/1093662/1093662-hd_1920_1080_30fps.mp4",
+    "https://videos.pexels.com/video-files/1918465/1918465-hd_1920_1080_24fps.mp4",
+    "https://videos.pexels.com/video-files/2169880/2169880-hd_1920_1080_30fps.mp4",
+  ],
+  credit: "Pexels (sample)",
+};

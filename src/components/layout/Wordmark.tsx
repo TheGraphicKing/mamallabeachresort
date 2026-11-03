@@ -17,7 +17,7 @@ export function Wordmark({ compact, className }: { compact?: boolean; className?
         <path d="M30 27c3-1.6 5-1.6 8 0" opacity=".6" />
       </svg>
       <span className="font-display text-[1.45rem] tracking-[0.32em] md:text-[1.7rem]">MAMALLA</span>
-      <span className={cn("mt-1 text-[0.55rem] font-semibold uppercase tracking-[0.38em] opacity-80 transition-all duration-500", compact && "md:mt-0.5")}>
+      <span className={cn("mt-1 text-[0.55rem] font-medium uppercase tracking-[0.38em] opacity-80 transition-all duration-500", compact && "md:mt-0.5")}>
         Beach Resort
       </span>
     </span>

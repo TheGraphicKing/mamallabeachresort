@@ -141,7 +141,7 @@ export function DateRangeCalendar({ checkIn, checkOut, min, max, focus, onChange
               <thead>
                 <tr>
                   {WEEKDAYS.map((d) => (
-                    <th key={d} scope="col" className="pb-2 text-[0.65rem] font-semibold uppercase tracking-widest text-stone-deep">
+                    <th key={d} scope="col" className="pb-2 text-[0.65rem] font-medium uppercase tracking-widest text-stone-deep">
                       {d}
                     </th>
                   ))}

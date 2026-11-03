@@ -5,11 +5,11 @@ import type { ArtworkScene, PhotoSource } from "@/content/types";
 import { cn } from "@/lib/cn";
 import { artworkUrl } from "./Artwork";
 
-const WIDTHS = [640, 960, 1280, 1600, 2048];
+const WIDTHS = [640, 960, 1280, 1600, 2048, 2560];
 
 function build(source: PhotoSource): { src: string; srcSet: string } {
   if ("unsplash" in source) {
-    const base = `https://images.unsplash.com/photo-${source.unsplash}?auto=format&fit=crop&q=72`;
+    const base = `https://images.unsplash.com/photo-${source.unsplash}?auto=format&fit=crop&q=80`;
     return {
       src: `${base}&w=1600`,
       srcSet: WIDTHS.map((w) => `${base}&w=${w} ${w}w`).join(", "),

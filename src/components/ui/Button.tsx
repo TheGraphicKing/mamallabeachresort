@@ -6,10 +6,10 @@ import { cn } from "@/lib/cn";
 type Variant = "primary" | "secondary" | "light" | "outline-light" | "ghost";
 
 const base =
-  "group inline-flex min-h-12 items-center justify-center gap-3 px-7 py-3 text-[0.78rem] font-semibold uppercase tracking-[0.18em] transition-[background-color,color,border-color,box-shadow] duration-300 ease-[var(--ease-tide)] disabled:cursor-not-allowed disabled:opacity-60";
+  "group inline-flex min-h-12 items-center justify-center gap-3 px-7 py-3 text-[0.72rem] font-medium uppercase tracking-[0.26em] transition-[background-color,color,border-color,box-shadow] duration-300 ease-[var(--ease-tide)] disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-ocean text-ivory hover:bg-ocean-deep",
+  primary: "bg-ocean-deep text-ivory hover:bg-brass hover:text-ocean-deep",
   secondary: "border border-ink/30 text-ink hover:border-ink hover:bg-ink hover:text-ivory",
   light: "bg-ivory text-ocean-deep hover:bg-sand",
   "outline-light": "border border-ivory/60 text-ivory hover:border-ivory hover:bg-ivory hover:text-ocean-deep on-dark",

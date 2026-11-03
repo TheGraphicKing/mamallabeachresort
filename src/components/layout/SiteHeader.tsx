@@ -25,7 +25,7 @@ function NavLinks({ items, pathname }: { items: { label: string; href: string }[
               href={item.href}
               aria-current={active ? "page" : undefined}
               className={cn(
-                "group/nav relative block py-2 text-[0.7rem] font-semibold uppercase tracking-[0.2em] transition-opacity duration-300",
+                "group/nav relative block py-2 text-[0.7rem] font-medium uppercase tracking-[0.2em] transition-opacity duration-300",
                 active ? "opacity-100" : "opacity-75 hover:opacity-100",
               )}
             >
@@ -103,7 +103,7 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   const solid = scrolled && !menuOpen;
-  const light = !solid; // light text over imagery / open menu
+  const light = true; // header text is always light (transparent over imagery, smoked glass when scrolled)
 
   return (
     <>
@@ -116,7 +116,7 @@ export function SiteHeader() {
       <header
         className={cn(
           "fixed inset-x-0 top-0 z-50 transition-[transform,background-color,color,box-shadow] duration-500 ease-[var(--ease-tide)]",
-          solid ? "bg-ivory/95 text-ink shadow-[0_1px_0_rgba(43,41,37,0.08)] backdrop-blur-md" : "bg-transparent text-ivory",
+          solid ? "bg-ocean-deep/85 text-ivory shadow-[0_1px_0_rgba(226,207,174,0.12)] backdrop-blur-xl" : "bg-transparent text-ivory",
           hidden && !menuOpen && "-translate-y-full",
         )}
       >
@@ -173,8 +173,8 @@ export function SiteHeader() {
             </a>
             <BookButton
               className={cn(
-                "inline-flex min-h-11 items-center px-4 text-[0.7rem] font-semibold uppercase tracking-[0.18em] transition-colors md:px-6",
-                solid ? "bg-ocean text-ivory hover:bg-ocean-deep" : "border border-ivory/60 hover:bg-ivory hover:text-ocean-deep",
+                "inline-flex min-h-11 items-center px-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] transition-colors md:px-6",
+                solid ? "bg-sand text-ocean-deep hover:bg-ivory" : "border border-ivory/60 hover:bg-ivory hover:text-ocean-deep",
               )}
             >
               Book<span className="hidden sm:inline xl:hidden 2xl:inline">&nbsp;your stay</span>
@@ -253,7 +253,7 @@ export function SiteHeader() {
                     </a>
                   </p>
                 </div>
-                <BookButton className="inline-flex min-h-12 w-fit items-center bg-ivory px-7 text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
+                <BookButton className="inline-flex min-h-12 w-fit items-center bg-ivory px-7 text-[0.72rem] font-medium uppercase tracking-[0.26em] text-ocean-deep hover:bg-sand">
                   Book your stay
                 </BookButton>
               </motion.div>

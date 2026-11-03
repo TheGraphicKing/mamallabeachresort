@@ -32,6 +32,13 @@ To publish an approved photo:
 
 To swap a sample photo: replace the Unsplash id (the part after `photo-` in an `images.unsplash.com` URL).
 
+## Hero film
+`heroVideo` in `src/content/media.ts` lists sample **Pexels** clips (Pexels License, free use), tried in order
+over the hero photo. They were **not previewable** from the build environment — check the live site. To use the
+resort's own film, set `NEXT_PUBLIC_HERO_VIDEO_URL` (e.g. `/video/hero.mp4` in `public/video/`); it's tried first.
+Recommended: 10–20 s, muted, 1920×1080 H.264 MP4, under ~8 MB, calm motion (waves, palms, pool at dusk).
+On phones, with reduced motion or data-saver, the photo poster is shown instead.
+
 ## Manifest
 
 | Slot | Shows (alt text) | Sample sources (primary / backup) | Licence | Status |

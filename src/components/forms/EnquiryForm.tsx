@@ -276,7 +276,7 @@ export function EnquiryForm({ kind, defaults, eventTypes = EVENT_TYPES, submitLa
       <div ref={status === "error" ? statusRef : undefined} tabIndex={-1} className="outline-none" aria-live="polite">
         {status === "error" && (
           <div role="alert" className="border-l-2 border-error bg-error/5 px-5 py-4 text-sm leading-relaxed">
-            <p className="font-semibold text-error">{serverMessage}</p>
+            <p className="font-medium text-error">{serverMessage}</p>
             <p className="mt-2 text-ink/75">Your details haven&apos;t been lost — you can try again, or reach us directly:</p>
             <p className="mt-3 flex flex-wrap gap-5">
               <a href={resort.phone.href} className="inline-flex items-center gap-2 font-medium text-ocean underline underline-offset-2">

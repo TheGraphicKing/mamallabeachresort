@@ -62,7 +62,7 @@ export default function MahabalipuramPage() {
               />
             </Reveal>
             <Reveal delay={0.1} className={cn(i % 2 === 0 ? "md:col-span-4 md:col-start-9" : "md:order-1 md:col-span-4 md:col-start-2")}>
-              <p className="font-display text-xl text-brass">{String(i + 1).padStart(2, "0")}</p>
+              <p className="font-display text-xl text-brass-deep">{String(i + 1).padStart(2, "0")}</p>
               <h2 id={`att-${i}`} className="mt-3 text-display-sm text-ocean-deep">{a.name}</h2>
               <p className="mt-5 leading-relaxed text-ink/75">{a.description}</p>
             </Reveal>

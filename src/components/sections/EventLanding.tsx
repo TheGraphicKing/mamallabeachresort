@@ -56,7 +56,7 @@ export function EventLanding({
           <ol className="grid border-t border-ink/12 md:grid-cols-2 lg:grid-cols-3">
             {occasions.map((o, i) => (
               <Reveal as="li" key={o.title} delay={(i % 3) * 0.08} className="border-b border-ink/12 py-8 md:pr-10">
-                <p className="font-display text-lg text-brass">{String(i + 1).padStart(2, "0")}</p>
+                <p className="font-display text-lg text-brass-deep">{String(i + 1).padStart(2, "0")}</p>
                 <h3 className="mt-2 font-display text-2xl text-ocean-deep md:text-3xl">{o.title}</h3>
                 <p className="mt-3 text-ink/70">{o.body}</p>
               </Reveal>
