@@ -1,29 +1,35 @@
 @import "tailwindcss";
 
 /* ==========================================================================
-   Design system — "Nocturne"
+   Design system — "Sandstone & Palm"
    Colour, type, spacing and motion tokens. See docs/DESIGN-SYSTEM.md.
    ========================================================================== */
 
 @theme {
-  /* Colour — "Nocturne": night lagoon, parchment, champagne */
-  --color-ivory: #f4efe6;
-  --color-ivory-deep: #eae2d4;
-  --color-sand: #e2cfae;
-  --color-sand-deep: #c4a574;
-  --color-stone: #8a7f70;
-  --color-stone-deep: #5c5348;
-  --color-seaglass: #9fb8ad;
-  --color-seaglass-deep: #46675e;
-  --color-ocean: #1b3134;
-  --color-ocean-deep: #0d1a1c;
-  --color-charcoal: #161a1a;
-  --color-ink: #1f1d1a;
+  /* Colour — "Sandstone & Palm": warm greige paper, deep palm green, champagne */
+  --color-ivory: #f5f1ea;
+  --color-ivory-deep: #e9e3d7;
+  --color-paper: #fbf9f5;
+  --color-sand: #e6d4b2;
+  --color-sand-deep: #c7a66c;
+  --color-stone: #8a8174;
+  --color-stone-deep: #5a5247;
+  --color-seaglass: #a9c0b4;
+  --color-seaglass-deep: #45665c;
+  --color-ocean: #2a4740;
+  --color-ocean-deep: #17302a;
+  --color-charcoal: #141c19;
+  --color-ink: #1d211e;
   --color-terracotta: #9c5233;
-  --color-brass: #b8955c;
-  --color-brass-deep: #87672f;
+  --color-brass: #b48a4e;
+  --color-brass-deep: #82612d;
   --color-error: #9b2c22;
   --color-success: #2f6a4f;
+
+  /* Shape — soft, generous radii in the style of contemporary resort UI */
+  --radius-media: 1.75rem;
+  --radius-card: 1.5rem;
+  --radius-frame: 2.25rem;
 
   /* Type — Bodoni Moda (display) + Jost (text & labels) */
   --font-display: var(--font-bodoni), "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
@@ -224,4 +230,13 @@ details[open] > .details-body {
 /* "Illustration" label only when a slot is actually showing fallback artwork */
 .media-slot:not(:has(img[src^="/art/"])) > .media-fallback-label {
   display: none;
+}
+
+/* Every image slot gets soft corners unless it is a full-bleed background */
+.media-slot {
+  border-radius: var(--radius-media);
+}
+.media-bleed,
+.media-bleed .media-slot {
+  border-radius: 0;
 }

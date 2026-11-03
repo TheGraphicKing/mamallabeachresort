@@ -73,7 +73,7 @@ export function Gallery({ items, filterable = true }: { items: MediaAsset[]; fil
               aria-pressed={filter === c}
               onClick={() => setFilter(c)}
               className={cn(
-                "min-h-11 border px-5 text-[0.72rem] font-medium uppercase tracking-[0.16em] transition-colors",
+                "min-h-11 rounded-full border px-5 text-[0.72rem] font-medium uppercase tracking-[0.16em] transition-colors",
                 filter === c ? "border-ocean bg-ocean text-ivory" : "border-ink/20 text-ink hover:border-ink",
               )}
             >

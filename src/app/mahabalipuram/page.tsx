@@ -70,8 +70,8 @@ export default function MahabalipuramPage() {
         ))}
       </div>
 
-      <section className="on-dark relative overflow-hidden text-ivory" aria-labelledby="more-title">
-        <Parallax className="absolute inset-0" strength={8}>
+      <section className="on-dark relative mx-3 overflow-hidden rounded-[var(--radius-frame)] text-ivory md:mx-6" aria-labelledby="more-title">
+        <Parallax className="media-bleed absolute inset-0" strength={8}>
           <Media media={media.romance} sizes="100vw" className="h-full w-full" labelPosition="top-right" />
         </Parallax>
         <div aria-hidden className="absolute inset-0 bg-ocean-deep/75" />

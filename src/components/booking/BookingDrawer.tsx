@@ -81,13 +81,13 @@ export function BookingProvider({ children }: { children: ReactNode }) {
               role="dialog"
               aria-modal="true"
               aria-labelledby="booking-drawer-title"
-              className="absolute inset-x-0 bottom-0 max-h-[92dvh] overflow-y-auto bg-ivory pb-safe md:inset-y-0 md:right-0 md:left-auto md:max-h-none md:w-[30rem]"
+              className="absolute inset-x-0 bottom-0 max-h-[92dvh] overflow-y-auto rounded-t-[var(--radius-frame)] bg-paper pb-safe md:rounded-l-[var(--radius-frame)] md:rounded-tr-none md:inset-y-0 md:right-0 md:left-auto md:max-h-none md:w-[30rem]"
               initial={reduce ? { opacity: 0 } : { y: "100%", x: 0 }}
               animate={reduce ? { opacity: 1 } : { y: 0, x: 0 }}
               exit={reduce ? { opacity: 0 } : { y: "100%" }}
               transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             >
-              <div className="sticky top-0 z-10 flex items-center justify-between border-b border-ink/10 bg-ivory px-6 py-4">
+              <div className="sticky top-0 z-10 flex items-center justify-between border-b border-ink/10 bg-paper px-6 py-4">
                 <div aria-hidden className="absolute top-2 left-1/2 h-1 w-10 -translate-x-1/2 rounded-full bg-ink/15 md:hidden" />
                 <h2 id="booking-drawer-title" className="font-display text-2xl text-ocean-deep">
                   Plan your stay

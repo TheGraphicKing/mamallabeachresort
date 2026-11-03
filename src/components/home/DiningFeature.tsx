@@ -17,7 +17,7 @@ export function DiningFeature() {
           <Reveal
             variant="mask"
             delay={0.2}
-            className="absolute -right-3 -bottom-10 w-[42%] border-[6px] border-ivory shadow-[0_30px_60px_-30px_rgba(18,35,47,0.5)] sm:-right-8 lg:-right-16"
+            className="absolute -right-3 -bottom-10 w-[42%] overflow-hidden rounded-[calc(var(--radius-media)+6px)] border-[6px] border-ivory shadow-[0_30px_60px_-30px_rgba(18,35,47,0.5)] sm:-right-8 lg:-right-16"
           >
             <Media media={media.diningPlate} sizes="22vw" className="aspect-square w-full" labelPosition="bottom-right" />
           </Reveal>

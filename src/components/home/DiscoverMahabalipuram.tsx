@@ -11,7 +11,7 @@ export function DiscoverMahabalipuram() {
   const withMedia = attractions.filter((a) => a.media);
   const [lead, ...rest] = withMedia;
   return (
-    <section aria-labelledby="discover-title" className="section-y on-dark overflow-hidden bg-ocean-deep text-ivory">
+    <section aria-labelledby="discover-title" className="section-y on-dark mx-3 my-3 overflow-hidden rounded-[var(--radius-frame)] md:my-5 bg-ocean-deep text-ivory md:mx-6">
       <div className="container-site">
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <Reveal className="lg:col-span-6">

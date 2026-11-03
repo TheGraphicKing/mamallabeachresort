@@ -65,7 +65,7 @@ export function EventLanding({
         </div>
       </section>
 
-      <section className="section-y on-dark bg-charcoal text-ivory" aria-labelledby="venues-title">
+      <section className="section-y on-dark mx-3 my-3 overflow-hidden rounded-[var(--radius-frame)] md:my-5 bg-ocean-deep text-ivory md:mx-6" aria-labelledby="venues-title">
         <div className="container-site">
           <Reveal>
             <SectionHeading light eyebrow="Venues" title={<span id="venues-title">Spaces at the resort</span>} lead={events.capacityNote} />
@@ -91,8 +91,8 @@ export function EventLanding({
         </div>
       </section>
 
-      <Reveal variant="mask">
-        <Media media={feature} sizes="100vw" className="aspect-[16/9] w-full md:aspect-[21/8]" />
+      <Reveal variant="mask" className="px-3 pt-16 md:px-6 md:pt-24">
+        <Media media={feature} sizes="100vw" className="aspect-[16/9] w-full rounded-[var(--radius-frame)] md:aspect-[21/8]" />
       </Reveal>
 
       <section id="enquire" className="section-y scroll-mt-24" aria-labelledby="enquire-title">

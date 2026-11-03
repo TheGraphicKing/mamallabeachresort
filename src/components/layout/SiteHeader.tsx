@@ -103,7 +103,7 @@ export function SiteHeader() {
   }, [menuOpen]);
 
   const solid = scrolled && !menuOpen;
-  const light = true; // header text is always light (transparent over imagery, smoked glass when scrolled)
+  const light = !solid; // light text over imagery; dark text on the frosted pill
 
   return (
     <>
@@ -115,15 +115,19 @@ export function SiteHeader() {
       </a>
       <header
         className={cn(
-          "fixed inset-x-0 top-0 z-50 transition-[transform,background-color,color,box-shadow] duration-500 ease-[var(--ease-tide)]",
-          solid ? "bg-ocean-deep/85 text-ivory shadow-[0_1px_0_rgba(226,207,174,0.12)] backdrop-blur-xl" : "bg-transparent text-ivory",
-          hidden && !menuOpen && "-translate-y-full",
+          "fixed inset-x-0 top-0 z-50 px-3 pt-3 transition-transform duration-500 ease-[var(--ease-tide)] md:px-6 md:pt-5",
+          hidden && !menuOpen && "-translate-y-[130%]",
         )}
       >
-        {!solid && !menuOpen && (
-          <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 h-40 bg-gradient-to-b from-ocean-deep/45 to-transparent" />
-        )}
-        <div className={cn("container-site grid h-20 grid-cols-[1fr_auto_1fr] items-center gap-4 md:h-24", light && "on-dark")}>
+        <div
+          className={cn(
+            "mx-auto grid h-16 max-w-[92rem] grid-cols-[1fr_auto_1fr] items-center gap-4 rounded-full px-4 transition-[background-color,color,box-shadow,padding] duration-500 ease-[var(--ease-tide)] md:h-[4.5rem] md:px-7",
+            solid
+              ? "bg-paper/85 text-ink shadow-[0_18px_50px_-24px_rgba(23,48,42,0.45)] ring-1 ring-ink/5 backdrop-blur-xl"
+              : "bg-transparent text-ivory",
+            light && "on-dark",
+          )}
+        >
           <div className="flex items-center gap-8">
             <button
               ref={menuBtn}
@@ -173,8 +177,8 @@ export function SiteHeader() {
             </a>
             <BookButton
               className={cn(
-                "inline-flex min-h-11 items-center px-4 text-[0.7rem] font-medium uppercase tracking-[0.18em] transition-colors md:px-6",
-                solid ? "bg-sand text-ocean-deep hover:bg-ivory" : "border border-ivory/60 hover:bg-ivory hover:text-ocean-deep",
+                "inline-flex min-h-11 items-center rounded-full px-5 text-[0.68rem] font-medium uppercase tracking-[0.2em] transition-colors md:px-6",
+                solid ? "bg-ocean-deep text-ivory hover:bg-ocean" : "bg-paper text-ocean-deep hover:bg-sand",
               )}
             >
               Book<span className="hidden sm:inline xl:hidden 2xl:inline">&nbsp;your stay</span>

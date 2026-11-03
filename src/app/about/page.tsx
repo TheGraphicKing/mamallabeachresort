@@ -49,7 +49,7 @@ export default function AboutPage() {
       </section>
 
       <Reveal variant="mask">
-        <Parallax className="relative aspect-[16/9] w-full md:aspect-[21/9]" strength={8}>
+        <Parallax className="media-bleed relative mx-3 aspect-[16/9] overflow-hidden rounded-[var(--radius-frame)] md:mx-6 md:aspect-[21/9]" strength={8}>
           <Media media={media.pool} sizes="100vw" className="h-full w-full" />
         </Parallax>
       </Reveal>
@@ -70,7 +70,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section-y on-dark bg-ocean-deep text-ivory" aria-labelledby="town-title">
+      <section className="section-y on-dark mx-3 my-3 overflow-hidden rounded-[var(--radius-frame)] md:my-5 bg-ocean-deep text-ivory md:mx-6" aria-labelledby="town-title">
         <div className="container-site grid gap-14 lg:grid-cols-12">
           <Reveal className="lg:col-span-5">
             <SectionHeading

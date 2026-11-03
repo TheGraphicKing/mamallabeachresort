@@ -6,13 +6,13 @@ import { cn } from "@/lib/cn";
 type Variant = "primary" | "secondary" | "light" | "outline-light" | "ghost";
 
 const base =
-  "group inline-flex min-h-12 items-center justify-center gap-3 px-7 py-3 text-[0.72rem] font-medium uppercase tracking-[0.26em] transition-[background-color,color,border-color,box-shadow] duration-300 ease-[var(--ease-tide)] disabled:cursor-not-allowed disabled:opacity-60";
+  "group inline-flex min-h-12 items-center justify-center gap-3 rounded-full px-7 py-3 text-[0.7rem] font-medium uppercase tracking-[0.22em] transition-[background-color,color,border-color,box-shadow,transform] duration-300 ease-[var(--ease-tide)] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60";
 
 const variants: Record<Variant, string> = {
-  primary: "bg-ocean-deep text-ivory hover:bg-brass hover:text-ocean-deep",
-  secondary: "border border-ink/30 text-ink hover:border-ink hover:bg-ink hover:text-ivory",
-  light: "bg-ivory text-ocean-deep hover:bg-sand",
-  "outline-light": "border border-ivory/60 text-ivory hover:border-ivory hover:bg-ivory hover:text-ocean-deep on-dark",
+  primary: "bg-ocean-deep text-ivory hover:bg-ocean shadow-[0_12px_30px_-14px_rgba(23,48,42,0.7)]",
+  secondary: "border border-ink/20 bg-paper/60 text-ink hover:border-ink hover:bg-ink hover:text-ivory",
+  light: "bg-paper text-ocean-deep hover:bg-sand",
+  "outline-light": "border border-ivory/50 bg-ivory/10 text-ivory backdrop-blur-md hover:border-ivory hover:bg-ivory hover:text-ocean-deep on-dark",
   ghost: "px-0 text-ink hover:text-terracotta",
 };
 
@@ -30,6 +30,21 @@ function Arrow() {
   );
 }
 
+/** Arrow in a small circle — used at the end of pill buttons. */
+export function ArrowDot({ className }: { className?: string }) {
+  return (
+    <span
+      aria-hidden
+      className={cn(
+        "-mr-4 grid h-8 w-8 place-items-center rounded-full ring-1 ring-current/30 transition-transform duration-500 ease-[var(--ease-tide)] group-hover:translate-x-0.5 group-hover:-rotate-45",
+        className,
+      )}
+    >
+      <ArrowRight className="h-3.5 w-3.5" strokeWidth={1.6} />
+    </span>
+  );
+}
+
 interface LinkButtonProps extends Omit<ComponentProps<typeof Link>, "className"> {
   variant?: Variant;
   arrow?: boolean;
@@ -41,7 +56,7 @@ export function LinkButton({ variant = "primary", arrow, className, children, ..
   return (
     <Link className={buttonClass(variant, className)} {...props}>
       {children}
-      {arrow && <Arrow />}
+      {arrow && <ArrowDot />}
     </Link>
   );
 }
@@ -55,7 +70,7 @@ export function Button({ variant = "primary", arrow, className, children, ...pro
   return (
     <button className={buttonClass(variant, className)} {...props}>
       {children}
-      {arrow && <Arrow />}
+      {arrow && <ArrowDot />}
     </button>
   );
 }

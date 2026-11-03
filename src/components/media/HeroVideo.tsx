@@ -73,7 +73,7 @@ export function HeroVideo({ poster, sources, className }: { poster: MediaAsset; 
         <button
           type="button"
           onClick={toggle}
-          className="on-dark absolute top-28 right-6 z-10 hidden h-10 items-center gap-2 border border-ivory/30 bg-ocean-deep/30 px-3 text-[0.62rem] font-medium uppercase tracking-[0.26em] text-ivory/85 backdrop-blur-sm transition-colors hover:bg-ocean-deep/60 md:flex"
+          className="on-dark absolute top-28 right-6 z-10 hidden h-10 items-center rounded-full gap-2 border border-ivory/30 bg-ocean-deep/30 px-3 text-[0.62rem] font-medium uppercase tracking-[0.26em] text-ivory/85 backdrop-blur-sm transition-colors hover:bg-ocean-deep/60 md:flex"
           aria-label={paused ? "Play background video" : "Pause background video"}
         >
           {paused ? <Play aria-hidden className="h-3.5 w-3.5" /> : <Pause aria-hidden className="h-3.5 w-3.5" />}

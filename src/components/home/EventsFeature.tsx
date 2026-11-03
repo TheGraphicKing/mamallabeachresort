@@ -23,7 +23,7 @@ const panels = [
 
 export function EventsFeature() {
   return (
-    <section aria-labelledby="events-title" className="section-y on-dark bg-charcoal text-ivory">
+    <section aria-labelledby="events-title" className="section-y on-dark mx-3 my-3 overflow-hidden rounded-[var(--radius-frame)] md:my-5 bg-ocean text-ivory md:mx-6">
       <div className="container-site">
         <Reveal>
           <SectionHeading

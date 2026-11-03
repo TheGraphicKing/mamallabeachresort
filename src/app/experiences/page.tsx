@@ -81,7 +81,7 @@ export default function ExperiencesPage() {
         })}
       </div>
 
-      <section id="mahabalipuram" className="section-y scroll-mt-24 on-dark bg-ocean-deep text-ivory" aria-labelledby="mb-title">
+      <section id="mahabalipuram" className="section-y scroll-mt-24 on-dark mx-3 my-3 overflow-hidden rounded-[var(--radius-frame)] md:my-5 bg-ocean-deep text-ivory md:mx-6" aria-labelledby="mb-title">
         <div className="container-site">
           <div className="grid gap-12 lg:grid-cols-12">
             <Reveal className="lg:col-span-5">

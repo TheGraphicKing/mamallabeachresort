@@ -2,15 +2,8 @@ import { media } from "@/content/media";
 import { Media } from "../media/Media";
 import { Parallax } from "../motion/Parallax";
 import { Reveal } from "../motion/Reveal";
-import { ArrowLink } from "../ui/Button";
+import { LinkButton } from "../ui/Button";
 import { Eyebrow } from "../ui/Typography";
-
-const notes = [
-  { k: "The shore", v: "Beach access from the resort" },
-  { k: "The water", v: "Outdoor pool & children's pool" },
-  { k: "The table", v: "The Seagull, multi-cuisine" },
-  { k: "The gatherings", v: "A lawn and indoor halls" },
-];
 
 export function Intro() {
   return (
@@ -32,13 +25,13 @@ export function Intro() {
               </p>
               <p>For families, couples, wedding parties and teams alike, it is an easy escape from Chennai.</p>
             </div>
-            <ArrowLink href="/about" className="mt-10">About the resort</ArrowLink>
+            <LinkButton href="/about" variant="secondary" className="mt-10">Our story</LinkButton>
           </Reveal>
         </div>
 
         <div className="relative lg:col-span-7">
           <Reveal variant="mask">
-            <Parallax className="relative aspect-[4/5] w-full md:aspect-[5/6]" strength={6}>
+            <Parallax className="media-bleed relative aspect-[4/5] w-full overflow-hidden rounded-[var(--radius-media)] md:aspect-[5/6]" strength={6}>
               <Media media={media.introPalms} sizes="(min-width: 1024px) 55vw, 100vw" className="h-full w-full" />
             </Parallax>
           </Reveal>
@@ -48,16 +41,6 @@ export function Intro() {
         </div>
       </div>
 
-      <div className="container-site mt-28 md:mt-36">
-        <dl className="grid grid-cols-2 border-t border-ink/12 lg:grid-cols-4">
-          {notes.map((n, i) => (
-            <Reveal key={n.k} delay={i * 0.08} className="border-b border-ink/12 py-8 pr-6 lg:border-b-0 lg:border-r lg:px-8 lg:first:pl-0 lg:last:border-r-0">
-              <dt className="eyebrow text-stone-deep">{n.k}</dt>
-              <dd className="mt-3 font-display text-2xl text-ocean-deep">{n.v}</dd>
-            </Reveal>
-          ))}
-        </dl>
-      </div>
     </section>
   );
 }

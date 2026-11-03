@@ -1,24 +1,29 @@
-# Design system — "Nocturne"
+# Design system — "Sandstone & Palm"
 
 Tokens live in `src/app/globals.css` (`@theme`). Use the Tailwind utilities they generate
 (`bg-ocean`, `text-display-md`, `ease-[var(--ease-tide)]`, …) rather than raw values.
 
-## Colour — night lagoon, parchment, champagne
-Inspired by the restraint of top resort brands (dark cinematic heroes, warm paper tones, a single metallic accent).
+## Direction
+Contemporary luxury-resort UI (as seen across current Dribbble hospitality work): warm greige paper, an inset
+rounded hero frame, a floating pill navigation, a white pill booking widget, pill buttons with circular arrows,
+rounded image cards, amenity tiles, a bento experiences grid, deep palm-green panels and a giant footer wordmark.
 
+## Colour
 | Token | Hex | Use |
 |---|---|---|
-| `ocean-deep` | #0d1a1c | Night lagoon — hero, dark sections, scrolled header, footer, primary buttons |
-| `ocean` | #1b3134 | Secondary dark surface |
-| `ivory` | #f4efe6 | Parchment — page background, light text on dark |
-| `ivory-deep` | #eae2d4 | Alternate parchment band |
-| `sand` / `sand-deep` | #e2cfae / #c4a574 | Champagne — accents on dark, glass-bar CTA |
-| `brass` | #b8955c | Lines, dots, rules (not text on light) |
-| `brass-deep` | #87672f | Bronze accent text on parchment (4.6:1) |
-| `stone-deep` | #5c5348 | Eyebrows and captions on parchment (6.6:1) |
-| `seaglass-deep` | #46675e | Italic accents, icons |
-| `ink` | #1f1d1a | Body text (14.7:1 on parchment) |
-| `terracotta` | #9c5233 | Laterite — focus ring, selected map pin |
+| `ivory` | #f5f1ea | Page background (warm paper) |
+| `ivory-deep` | #e9e3d7 | Greige band (rooms) |
+| `paper` | #fbf9f5 | Cards, booking widget, scrolled nav pill |
+| `ocean-deep` | #17302a | Deep palm green — panels, primary buttons, footer |
+| `ocean` | #2a4740 | Secondary green panel |
+| `sand` / `sand-deep` | #e6d4b2 / #c7a66c | Champagne accents on green |
+| `brass` / `brass-deep` | #b48a4e / #82612d | Lines / accent text on paper |
+| `stone-deep` | #5a5247 | Labels and captions |
+| `ink` | #1d211e | Body text |
+
+## Shape
+`--radius-media` 1.75rem (images), `--radius-card` 1.5rem (tiles), `--radius-frame` 2.25rem (hero, panels, footer).
+Buttons, chips, nav and booking bar are fully rounded pills. Full-bleed parallax layers use `.media-bleed`.
 
 ## Typography
 - Display: **Bodoni Moda** (variable, optical sizing, roman + italic) — high-contrast didone for an editorial, couture feel.

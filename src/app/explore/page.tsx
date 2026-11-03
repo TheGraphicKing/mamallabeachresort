@@ -39,7 +39,7 @@ export default function ExplorePage() {
           </div>
         </div>
       </section>
-      <section className="section-y on-dark bg-ocean-deep text-ivory" aria-labelledby="map-title">
+      <section className="section-y on-dark mx-3 my-3 overflow-hidden rounded-[var(--radius-frame)] md:my-5 bg-ocean-deep text-ivory md:mx-6" aria-labelledby="map-title">
         <div className="container-site">
           <Reveal>
             <SectionHeading

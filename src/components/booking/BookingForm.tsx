@@ -124,7 +124,7 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
       onClick={() => setPanel(panel === key ? null : key)}
       className={cn(
         "group flex w-full items-center gap-4 text-left transition-colors",
-        layout === "bar" ? cn("h-full px-6 py-5", dark ? "hover:bg-ivory/10" : "hover:bg-ivory-deep/70") : "border-b py-4",
+        layout === "bar" ? cn("h-full rounded-full px-6 py-4", dark ? "hover:bg-ivory/10" : "hover:bg-ivory-deep/70") : "border-b py-4",
         layout === "panel" && (dark ? "border-ivory/20" : "border-ink/15"),
         panel === key && layout === "bar" && (dark ? "bg-ivory/10" : "bg-ivory-deep"),
         "data-[invalid]:shadow-[inset_0_-2px_0_0_var(--color-error)]",
@@ -177,7 +177,7 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
             "grid md:grid-cols-2 lg:grid-cols-[1fr_1fr_1.25fr_auto]",
             dark
               ? "border border-ivory/20 bg-ocean-deep/45 text-ivory shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] backdrop-blur-xl [&>div]:border-ivory/15"
-              : "bg-ivory text-ink shadow-[0_30px_80px_-40px_rgba(18,35,47,0.6)]",
+              : "rounded-[1.75rem] bg-paper p-2 text-ink shadow-[0_30px_70px_-30px_rgba(23,48,42,0.45)] ring-1 ring-ink/5 lg:rounded-full [&>div]:border-ink/10",
           )}
         >
           <div className="border-b border-ink/10 md:border-r lg:border-b-0">
@@ -193,7 +193,7 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
             type="submit"
             disabled={submitting}
             className={cn(
-              "group flex min-h-16 items-center justify-center gap-3 px-8 text-[0.72rem] font-medium uppercase tracking-[0.26em] transition-colors disabled:opacity-70",
+              "group flex min-h-14 items-center justify-center gap-3 rounded-full px-8 text-[0.7rem] font-medium uppercase tracking-[0.22em] transition-colors disabled:opacity-70",
               dark ? "bg-sand text-ocean-deep hover:bg-ivory" : "bg-ocean-deep text-ivory hover:bg-ocean",
             )}
           >
@@ -212,7 +212,7 @@ export function BookingForm({ layout = "bar", initial, onDone, tone = "light" }:
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                 className={cn(
-                  "absolute top-full z-30 mt-2 bg-ivory p-6 shadow-[0_40px_80px_-30px_rgba(18,35,47,0.45)]",
+                  "absolute top-full z-30 mt-3 rounded-[1.75rem] bg-paper p-6 shadow-[0_40px_80px_-30px_rgba(23,48,42,0.45)] ring-1 ring-ink/5",
                   panel === "guests" ? "right-0 w-full md:w-[24rem]" : "left-0 w-full md:w-[44rem]",
                 )}
               >

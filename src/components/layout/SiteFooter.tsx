@@ -15,8 +15,9 @@ export function SiteFooter() {
   ];
 
   return (
-    <footer className="on-dark bg-ocean-deep text-ivory/80">
-      <div className="container-site pt-20 pb-28 md:pb-12">
+    <footer className="px-3 pb-3 md:px-6 md:pb-5">
+     <div className="on-dark overflow-hidden rounded-[var(--radius-frame)] bg-ocean-deep text-ivory/80">
+      <div className="container-site pt-20 pb-6">
         <div className="grid gap-14 border-b border-ivory/12 pb-14 lg:grid-cols-[1.1fr_2fr]">
           <div className="space-y-8">
             <Link href="/" aria-label={`${resort.name} — home`} className="inline-block text-ivory">
@@ -42,14 +43,14 @@ export function SiteFooter() {
               )}
             </address>
             <div className="flex flex-wrap gap-3">
-              <BookButton className="inline-flex min-h-12 items-center bg-ivory px-6 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
+              <BookButton className="inline-flex min-h-12 items-center rounded-full bg-ivory px-6 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-ocean-deep hover:bg-sand">
                 Book your stay
               </BookButton>
               <a
                 href={resort.maps.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex min-h-12 items-center gap-2 border border-ivory/40 px-6 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-ivory hover:border-ivory"
+                className="inline-flex min-h-12 items-center gap-2 rounded-full border border-ivory/40 px-6 text-[0.75rem] font-medium uppercase tracking-[0.18em] text-ivory hover:border-ivory"
               >
                 Directions <ArrowUpRight aria-hidden className="h-4 w-4" strokeWidth={1.5} />
               </a>
@@ -87,6 +88,14 @@ export function SiteFooter() {
           </ul>
         )}
       </div>
+      <p
+        aria-hidden
+        className="pointer-events-none -mb-[0.18em] select-none text-center font-display text-[21vw] leading-[0.85] tracking-[-0.04em] text-ivory/[0.07]"
+      >
+        Mamalla
+      </p>
+      <div className="h-24 md:hidden" aria-hidden />
+     </div>
     </footer>
   );
 }

@@ -77,7 +77,7 @@ export function ResortMap({ tone = "light" }: { tone?: "light" | "dark" }) {
   return (
     <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
       <figure className="lg:col-span-8">
-        <div className={cn("relative aspect-[1000/640] w-full overflow-hidden", dark ? "bg-ocean" : "bg-sand")}>
+        <div className={cn("relative aspect-[1000/640] w-full overflow-hidden rounded-[var(--radius-media)]", dark ? "bg-ocean" : "bg-sand")}>
           <PlanArtwork dark={dark} />
           {mapZones.map((z, i) => {
             const selected = z.id === activeId;
@@ -130,7 +130,7 @@ export function ResortMap({ tone = "light" }: { tone?: "light" | "dark" }) {
                 onClick={() => setActiveId(z.id)}
                 aria-pressed={z.id === activeId}
                 className={cn(
-                  "min-h-10 border px-3 text-xs transition-colors",
+                  "min-h-10 rounded-full border px-3 text-xs transition-colors",
                   z.id === activeId
                     ? "border-terracotta bg-terracotta text-ivory"
                     : dark

@@ -1,71 +1,80 @@
+import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { heroVideo } from "@/content/media";
+import { heroVideo, media } from "@/content/media";
 import { BookButton } from "../booking/BookingDrawer";
 import { BookingForm } from "../booking/BookingForm";
 import { HeroVideo } from "../media/HeroVideo";
-import { buttonClass } from "../ui/Button";
+import { Media } from "../media/Media";
+import { ArrowDot, buttonClass } from "../ui/Button";
 
 const videoSources = [process.env.NEXT_PUBLIC_HERO_VIDEO_URL, ...heroVideo.sources].filter(Boolean) as string[];
 
 export function HomeHero() {
   return (
-    <>
-      <section
-        aria-labelledby="hero-title"
-        className="on-dark relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-ocean-deep text-ivory"
-      >
+    <section aria-labelledby="hero-title" className="px-3 pt-3 md:px-6 md:pt-5">
+      {/* Framed film: inset from the page edge with soft corners */}
+      <div className="on-dark relative isolate flex min-h-[calc(100svh-1.5rem)] flex-col justify-end overflow-hidden rounded-[var(--radius-frame)] bg-ocean-deep text-ivory md:min-h-[calc(100svh-2.5rem)]">
         <HeroVideo poster={heroVideo.poster} sources={videoSources} className="-z-20" />
-        {/* Cinematic grade: soft top and bottom falloff + a gentle overall dim for type contrast */}
-        <div aria-hidden className="absolute inset-0 -z-10 bg-ocean-deep/30" />
-        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-b from-ocean-deep/70 via-transparent to-ocean-deep/85" />
-        <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_center,transparent_40%,rgba(13,26,28,0.55)_100%)]" />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-gradient-to-t from-ocean-deep/90 via-ocean-deep/25 to-ocean-deep/45" />
+        <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_10%_90%,rgba(23,48,42,0.65),transparent_55%)]" />
 
-        <div className="container-site flex flex-1 flex-col items-center justify-center pt-36 pb-24 text-center md:pb-[17rem] lg:pb-56">
-          <p className="eyebrow rise-in flex items-center gap-5 text-sand" style={{ animationDelay: "150ms" }}>
-            <span aria-hidden className="hidden h-px w-10 bg-current opacity-70 sm:block" />
-            Mahabalipuram · Tamil Nadu
-            <span aria-hidden className="hidden h-px w-10 bg-current opacity-70 sm:block" />
-          </p>
-          <h1 id="hero-title" className="rise-in-solid mt-8 text-display-xl">
-            Where the coast
-            <span className="block italic text-sand">slows you down</span>
-          </h1>
-          <span aria-hidden className="rise-in mt-10 block h-14 w-px bg-sand/60" style={{ animationDelay: "380ms" }} />
-          <p className="rise-in mt-8 max-w-lg text-lead font-light text-ivory/85" style={{ animationDelay: "460ms" }}>
-            A beachside resort on the East Coast Road, in the temple town of Mamallapuram.
-          </p>
-          <div className="rise-in mt-10 flex flex-wrap justify-center gap-3" style={{ animationDelay: "600ms" }}>
-            <BookButton className={buttonClass("light")}>Book your stay</BookButton>
-            <Link href="/experiences" className={buttonClass("outline-light")}>
-              Discover the resort
-            </Link>
+        <div className="grid w-full items-end gap-10 px-6 pt-36 pb-16 md:px-12 md:pb-44 lg:grid-cols-12 lg:px-16 lg:pb-32">
+          <div className="lg:col-span-8">
+            <p
+              className="rise-in inline-flex items-center gap-3 rounded-full border border-ivory/25 bg-ivory/10 px-4 py-2 text-[0.66rem] font-medium uppercase tracking-[0.24em] text-ivory/90 backdrop-blur-md"
+              style={{ animationDelay: "150ms" }}
+            >
+              <span aria-hidden className="h-1.5 w-1.5 rounded-full bg-sand" />
+              Beachside resort · Mahabalipuram
+            </p>
+            <h1 id="hero-title" className="rise-in-solid mt-7 text-display-xl">
+              Where the coast
+              <span className="block italic text-sand">slows you down</span>
+            </h1>
+            <p className="rise-in mt-7 max-w-lg text-lead font-light text-ivory/85" style={{ animationDelay: "420ms" }}>
+              Pool days, sea air and long evenings on the East Coast Road — in the temple town of Mamallapuram.
+            </p>
+            <div className="rise-in mt-9 flex flex-wrap gap-3" style={{ animationDelay: "560ms" }}>
+              <BookButton className={buttonClass("light", "pr-5")}>
+                Book your stay <ArrowDot />
+              </BookButton>
+              <Link href="/experiences" className={buttonClass("outline-light")}>
+                Discover the resort
+              </Link>
+            </div>
           </div>
-        </div>
 
-        <div aria-hidden className="absolute right-6 bottom-8 hidden flex-col items-center gap-3 text-ivory/70 md:bottom-auto md:top-1/2 md:flex md:-translate-y-1/2">
-          <span className="eyebrow text-[0.58rem] [writing-mode:vertical-rl]">Scroll</span>
-          <span className="relative block h-14 w-px overflow-hidden bg-ivory/20">
-            <span className="scroll-cue-line absolute inset-0 bg-ivory" />
-          </span>
+          {/* Frosted destination card */}
+          <aside className="rise-in hidden lg:col-span-4 lg:block" style={{ animationDelay: "700ms" }} aria-label="Discover Mahabalipuram">
+            <Link
+              href="/mahabalipuram"
+              className="group ml-auto flex max-w-sm items-center gap-4 rounded-[1.5rem] border border-ivory/20 bg-ivory/10 p-3 pr-5 backdrop-blur-xl transition-colors hover:bg-ivory/20"
+            >
+              <Media media={media.shoreTemple} sizes="120px" className="aspect-square w-24 shrink-0 rounded-[1.1rem]" showLabel={false} />
+              <span className="min-w-0">
+                <span className="block text-[0.62rem] font-medium uppercase tracking-[0.24em] text-sand">Nearby</span>
+                <span className="mt-1 block font-display text-xl leading-tight">Discover Mahabalipuram</span>
+                <span className="mt-1 block text-xs text-ivory/70">UNESCO-listed monuments along the coast</span>
+              </span>
+              <ArrowUpRight aria-hidden className="ml-auto h-5 w-5 shrink-0 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" strokeWidth={1.5} />
+            </Link>
+          </aside>
         </div>
-      </section>
+      </div>
 
-      {/* Smoked-glass booking bar, sitting over the bottom of the film (outside the hero so dropdowns aren't clipped) */}
-      <section aria-label="Check availability" className="relative z-20 hidden md:block">
-        <div className="container-site -mt-[15rem] lg:-mt-40">
-          <BookingForm layout="bar" tone="dark" />
+      {/* White pill booking bar overlapping the frame's lower edge (outside the frame so dropdowns aren't clipped) */}
+      <div className="relative z-20 mx-auto -mt-[7.5rem] hidden max-w-6xl px-6 md:block lg:-mt-11">
+        <BookingForm layout="bar" />
+      </div>
+
+      {/* Phones: booking card below the frame */}
+      <div className="relative z-20 -mt-6 px-3 md:hidden">
+        <div className="rounded-[var(--radius-card)] bg-paper p-5 shadow-[0_24px_60px_-30px_rgba(23,48,42,0.5)] ring-1 ring-ink/5">
+          <p className="eyebrow text-stone-deep">Reservations</p>
+          <h2 className="mt-1 font-display text-3xl text-ocean-deep">Plan your stay</h2>
+          <BookingForm layout="panel" />
         </div>
-        <div className="h-24 lg:h-16" aria-hidden />
-      </section>
-
-      {/* Compact booking panel on phones */}
-      <section aria-labelledby="mobile-booking-title" className="on-dark bg-ocean-deep px-5 pt-10 pb-12 text-ivory md:hidden">
-        <p className="eyebrow mb-2 text-sand">Reservations</p>
-        <h2 id="mobile-booking-title" className="mb-2 font-display text-3xl">
-          Plan your stay
-        </h2>
-        <BookingForm layout="panel" tone="dark" />
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
